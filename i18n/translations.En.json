@@ -1,0 +1,18 @@
+{
+    "myKey": "en translation",
+    "nested": {
+      "key": "nested en translation"
+    },
+    "nav":{
+        "home":"HOME",
+        "iot":"IoT Secure cloud",
+        "carbon":"Carbon management",
+        "custom":"Customer stories",
+        "news":"News",
+        "contact":"About Us"
+    },
+    "sub_about":{
+      "title":"About us test page"
+    }
+   
+  }

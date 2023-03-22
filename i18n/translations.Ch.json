@@ -1,0 +1,17 @@
+{
+    "myKey": "chinese translation",
+    "nested": {
+      "key": "nested de translation"
+    },
+    "nav":{
+        "home":"首页",
+        "iot":"IoT安全云",
+        "carbon":"碳管理服务",
+        "custom":"客户案例",
+        "news":"新闻资讯",
+        "contact":"关于我们"
+    },
+    "sub_about":{
+      "title":"关于我们测试"
+    }
+  }

@@ -4,6 +4,34 @@
     "React": "readonly"
   },
   "rules": {
-    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }]
-  }
+    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }],
+    "no-mixed-spaces-and-tabs": 0,// disable rule
+     "linebreak-style": ["error", "unix"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+     "no-fallthrough": [0],
+        "import/no-unresolved": "off",
+        "import/extensions": "off"
+  },
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+   "plugins": [
+    "react",
+    "react-hooks"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2018,
+     "ecmaFeatures": {
+            "jsx": true
+        }
+  },
+  "babelOptions": {
+      "presets": ["@babel/react"]
+ }
+  
 }

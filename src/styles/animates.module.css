@@ -1,0 +1,17 @@
+.flash{
+  animation-name: flash; 
+		/* animation-direction: alternate; // 动画在奇数次（1、3、5...）正向播放，在偶数次（2、4、6...）反向播放。 */
+    /* // 动画执行方式，linear：匀速；ease：先慢再快后慢；ease-in：由慢速开始；ease-out：由慢速结束；ease-in-out：由慢速开始和结束； */
+		animation-timing-function: linear; 
+    /* // 动画延迟时间 */
+		animation-delay: 1s; 
+    /*  //  动画播放次数，infinite：一直播放 */
+		animation-iteration-count: infinite;
+    /* // 动画完成时间 */
+		animation-duration: 2s; 
+}
+@keyframes flash {
+  from {opacity: 0;}
+  to {opacity: 1;}
+ 
+}

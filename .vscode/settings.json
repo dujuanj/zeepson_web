@@ -1,0 +1,23 @@
+{
+  "liveServer.settings.port": 0,
+  "liveServer.settings.root": "",
+  "editor.semanticTokenColorCustomizations": {
+
+  },
+  "docker.commands.composeUpSubset": [
+
+    {
+      "label": "Compose Up",
+      "template": "${composeCommand} ${profileList} ${configurationFile} up ${detached} ${build} ${serviceList}"
+    }
+  ],
+  "liveServer.settings.ignoreFiles": [
+
+    ".vscode/**",
+    "**/*.scss",
+    "**/*.sass",
+    "**/*.ts"
+  ],
+  "eslint.format.enable": true,
+  "eslint.codeActionsOnSave.rules": null
+}
