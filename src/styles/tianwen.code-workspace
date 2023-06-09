@@ -1,0 +1,27 @@
+{
+	"folders": [
+    {
+      "path": "../.."
+    },
+    {
+      "path": "../../../../../terminal-web-v2"
+    },
+    {
+      "path": "../../../../../../blog/github/Mysql-Expressjs-Nextjs-nodejs-Blog-app/frontend"
+    },
+    {
+      "path": "../../../../../../blog/github/Mysql-Expressjs-Nextjs-nodejs-Blog-app/myback"
+    },
+    {
+      "path": "../../../../../../red-book/back-pink"
+    },
+    {
+      "path": "../../../../../../xian-yu/jquery-admin"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.port": 5501,
+    "liveServer.settings.multiRootWorkspaceName": "tianwen",
+    "git.ignoreLimitWarning": true
+  }
+}

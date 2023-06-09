@@ -1,0 +1,445 @@
+.main{
+  padding:6rem 0 3rem 0;
+}
+.top{
+  margin-top:3rem;
+}
+.pt1_title{
+  margin-bottom:2.5rem!important;
+}
+.number{
+  flex:1;
+  margin-right:0.6rem;
+  margin-top:1rem;
+}
+.z_number{
+  margin-right:6.25rem;
+}
+.number:first-child{
+  flex:1.1;
+}
+.number:last-child{
+  flex:0.8;
+}
+.number p:first-child{
+  color:#03CD8A;
+  font-size: 40px;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.number p:last-child{
+  font-size: 14px;
+}
+.pt3bg{
+  margin-top:10%;
+  margin-left:10;
+}
+.chart{
+  background: #F6F8FA;
+  position: absolute;
+  top:-28%;
+  left:0;
+  width:100%;
+  border-radius: 1rem;
+}
+.charthead{
+  border-bottom:1px dashed #333;
+  p{
+    font-size:26px;
+    font-weight: bold;
+  }
+}
+.charthead p{
+  padding:2.5rem 2.5rem 0 2.5rem;
+}
+.chartfooter{
+  width:90%;
+  margin:2.5rem auto;
+  height: 31.25rem;
+  padding-bottom: 2.5rem;
+  
+}
+.pt2Wrap{
+  width:100%;
+  background: #F6F8FA;
+  padding:7rem 0;
+  
+}
+.cass_left {
+  margin-top:3rem;
+}
+.cass_left span{
+  font-size:1.25rem;
+}
+.cass_left p{
+  color:#666666;
+  font-size:0.875rem;
+  margin-left: 1.5rem;
+  margin-top:0.5rem;
+}
+.cassimg {
+  margin-top:4rem;
+  position: relative;
+}
+.cassimg img{
+  width: 80% !important;
+}
+.cassimg div{
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);   
+}
+.cassimg p{
+  color:#fff;
+  font-size:1.5rem;
+}
+.cassimg p:first-child{
+  font-size:3rem;
+  margin-bottom: 0;
+}
+.scheme{
+  background: #F6F8FA;
+  margin-top:5rem;
+}
+.scheme h1{
+  padding:4rem 0 2rem 0;
+}
+.scheme div{
+  position: relative;
+}
+.scheme div p{
+   position: absolute; left: 50%; top: 95%;
+  transform: translate(-50%, -95%);   
+  color:#fff;
+}
+.schembot{
+  margin-top:3rem;
+}
+.schembot h3{
+  display: inline-block;
+}
+.effect{
+  background: #fff;
+  border-radius: 1rem;
+  padding:1.5rem;
+  margin-bottom: 1rem;
+}
+.photovoltaic{
+  display: flex;
+  .pho_1{
+    flex:1;
+    div{
+      font-size:12px;
+      color:#999999
+    }
+  }
+  .pho_2{
+    flex:1;
+    text-align: right;
+    span{
+      display: inline-block;
+      width:2rem;
+      height:2rem;
+      line-height:2rem;
+      background:#FEFAF2;
+      color:#FFC85F;
+      border-radius: 50%;
+      text-align: center;
+      position: relative;
+     top: -0.6rem;
+    }
+  }
+}
+.pho_1_1{
+  margin-top:1rem;
+ div{
+      font-size:12px;
+      color:#999999
+    }
+}
+.distributed{
+  div{
+    margin-bottom: 0.8rem;
+  }
+  h1{
+    margin:85px 0;
+    font-weight: bold;
+  }
+ .dis_1{
+  border:none;
+  .dis_card_body{
+    height: 250px;
+  }
+ }
+ .dis_2{
+  border:none;
+  .dis_card_body{
+    height: 250px;
+  }
+ }
+  
+}
+.vehicle{
+  .ve_right{
+    margin-left:3%;
+  }
+  h2{
+    margin-top:1rem;
+  }
+  margin-top:90px;
+  margin-bottom: 96px;
+  .isospan{
+    color:#999999
+  }
+  .sy{
+    background: #F6F8FA;
+    padding:24px;
+    margin-top:24px;
+    margin-bottom: 50px;
+    border-top-right-radius: 24px;
+    border-bottom-left-radius: 24px;
+  }
+  .dis_1_1{
+    div{
+      margin-bottom: 45px;
+    }
+    img{
+      width:26px;
+      height:26px;
+    }
+  }
+}
+.inventory{
+  h2{
+    font-size:24px;
+    border-bottom: 2px solid #03CD8A;
+    padding:24px 7px;
+    span{
+      font-size:14px;
+     color: #999999;
+    }
+  }
+  ul{
+    li{font-size:14px;
+      margin-top:24px;
+    }
+  }
+}
+.shanxi{
+  .small{
+    font-size:14px;
+  }
+  .earnings{
+    margin-top:24px;
+  }
+}
+.zjk{
+  .card_img{
+    height: 50rem;
+  }
+}
+.distributed{
+  p{
+    width:100%;
+    text-align: center;
+  }
+}
+   .cass_wrap{
+    margin-top:3rem
+   }
+
+   .report{
+    p{
+      color:#999;
+      font-size:12px;
+    }
+   }
+   .table_right{
+    .tbody{
+      margin-top:1rem;
+    }
+    td{
+      font-size:12px;
+      color:#999;
+      border:none;
+    }
+   }
+@media screen and (max-width: 1420px){
+  .mob_mt_0{
+    margin-top: 0 !important;
+  }
+ .card_img{
+    height:25rem;
+  }
+}
+@media screen and (max-width: 1200px){
+   .chat_wrap{
+    height: 35rem !important;
+  }
+  .chartfooter{
+    height: 25rem;
+  }
+}
+@media screen and (max-width: 1220px){
+  .pt1_title{
+    font-size:2rem;
+  }
+  .top p{
+    font-size:0.875rem;
+  }
+  .pt2Wrap p{
+     font-size:0.875rem;
+  }
+  .mob_mt_0{
+    margin-top: 0 !important;
+  }
+}
+@media screen and (max-width: 1070px){
+ .number p:first-child{
+  font-size:2rem!important;
+ }
+  .mob_bot_0{
+    margin-bottom: 0!important;
+  }
+  .mob_mt_0{
+    margin-top: 0 !important;
+  }
+  .hide{
+    display: none;
+  }
+  .mo_font_12{
+    font-size:12px;
+  }
+   .chat_wrap{
+    height:21rem;
+  }
+  .chartfooter{
+    height: 25rem;
+  }
+ 
+}
+
+
+@media screen and (max-width: 991px){
+  .chat_wrap{
+    height: 25rem !important;
+    .chart{
+      top:0;
+    }
+  }
+  .chartfooter{
+    height: 16rem;
+  }
+   .cass_wrap{
+   
+    .md{
+      width: 100%!important;
+    }
+    .cass_left{
+      margin-top:1rem;
+    }
+    .cassimg{
+      width:50%;
+      margin:0 auto;
+      p:first-child{
+        font-size:24px;
+      }
+      p:last-child{
+        font-size:16px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 767px){
+  .card_img{
+    height:25rem;
+  }
+  .scard_img{
+    height: 17rem;
+  }
+  .z_number{
+    margin-right:1rem!important;
+  }
+  .order1 {
+    order: 1;
+    margin-top:1rem;
+}
+.order2 {
+    order: 2;
+    margin-top:1rem;
+}
+}
+
+@media  screen and (max-width: 576px){
+  .number p:first-child{
+  font-size:1rem!important;
+ }
+  .pt1_title{
+    font-size: 1.8rem;
+  }
+  .pt2Wrap{
+    padding:4rem 0;
+  }
+  .part3{
+    h1{
+      margin-top:0!important;
+      font-size:18px;
+      font-weight: bold;
+    }
+    .number{
+      p{
+        font-size:1rem !important;
+      }
+    }
+  }
+  .charthead{
+    p{
+      font-size:1rem;
+    }
+  }
+  .chat_wrap{
+    height: 25rem !important;
+  }
+  .chartfooter{
+    height: 10rem;
+  }
+  .cassimg{
+      width:100% !important;
+    }
+    .zjk{
+      .zjk_wrap{
+        img{
+          height:100%;
+        }
+      }
+      .card_img{
+        height: unset !important;
+      }
+      .phone_zjk{
+        position: unset !important;
+        background: #fff;
+      }
+    }
+    
+    .shanxi{
+      .wrap{
+        height: 30rem; 
+        img{
+          height: 100%;
+        }
+      }
+    }
+    .psub_title{
+      font-size:13px;
+    }
+    .mleft_0{
+      margin-left:0!important;
+    }
+    .dis_2{
+  .dis_card_body{
+    height: 350px !important;
+  }
+ }
+ .phone_mt{
+  margin-top:1rem!important;
+ }
+}

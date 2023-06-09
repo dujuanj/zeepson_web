@@ -1,0 +1,110 @@
+.part1{
+  position: relative;
+  h1{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%); 
+    font-size:56px;
+    color:#fff;
+  }
+}
+.bg{
+  background: #F6F8FA;
+  padding:72px 120px;
+  .newcard{
+    margin-top:24px;
+    .newcard_card{
+      border:none;
+    }
+  }
+   .newsdate{
+    margin-top:24px;
+    font-size:16px;
+    color:#999;
+    span:last-child{
+      float:right;
+      margin-top:-3px;
+    }
+  }
+  .detail_right{
+    background: #fff;
+     padding:24px;
+    .title{
+      border-bottom: 1px solid #D8D8D8;
+      height: 4rem;
+     
+      span{
+        font-size:32px;
+        vertical-align: middle;
+        margin-left:5px
+      }
+    }
+  }
+  .date{
+    color:#999;
+    margin-top:24px;
+  }
+  .text{
+    margin-top:24px;
+    line-height: 30px;
+    font-size:14px;
+    text-align: justify;
+  }
+  .text_sub{
+    text-align: center;
+    color:#999;
+    margin-top:24px;
+  }
+ 
+  h1{
+    text-align: justify;
+    font-size:32px;
+  }
+}
+.detail_left{
+  h1{
+    line-height: 3rem;
+  }
+   img{
+    width:100%;
+  }
+}
+.newcard{
+  transition: all 1s ease;
+  .cardbody{
+    background: #F6F8FA;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+}
+.newcard:hover{
+  cursor: pointer;
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+
+@media  screen and (max-width: 576px){
+  .part1{
+    margin-top:4.1rem;
+    img{
+      height: 260px !important;
+    }
+    h1{
+      font-size:1.8rem;
+      width:100%;
+      text-align: center;
+    }
+  }
+  .part2{
+    margin-top:70px !important;
+  }
+  .bg{
+    padding:30px 0;
+  }
+  .detail_left{
+    h1{
+      font-size: 1.5rem;
+    line-height: 2.5rem;
+    }
+  }
+}

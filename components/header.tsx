@@ -19,6 +19,8 @@ import styles from './layout.module.css';
 export default function Header({ href }: any) {
   const [scrollY, setScrollY] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
+  const [pnav, setPnav] = useState(true)
+  // 翻译
   const { t } = useTranslation();
   const [query] = useLanguageQuery();
   const handleMouseOver = () => {
@@ -37,7 +39,7 @@ export default function Header({ href }: any) {
       const scrollTop = (e.srcElement ? e.srcElement.documentElement.scrollTop : false) || window.pageYOffset || (e.srcElement ? e.srcElement.body.scrollTop : 0);
 
       setScrollY(scrollTop);
-      console.log(scrollTop)
+      // console.log(scrollTop)
       if (scrollTop > 70) {
         //添加个背景色
       }
@@ -63,6 +65,15 @@ export default function Header({ href }: any) {
     } else {
       router.push(path)
     }
+    if (window.innerWidth <= 991) {
+      setPnav(true)
+      // handleToggleClick()
+      console.log('Navbar.Toggle 被点击');
+    }
+  }
+  const handleToggleClick = (event: any) => {
+    event.preventDefault()
+    setPnav(!pnav)
   }
   // scroll
 
@@ -70,24 +81,29 @@ export default function Header({ href }: any) {
   return (
     <>
       <div>
-        <Navbar expand="lg" fixed='top' className={scrollY < 70 ? styles.nvb_bg : styles.nvb_bg_white}  >
+
+        <Navbar expand="lg" fixed='top' className={scrollY < 1 ? styles.nvb_bg : styles.nvb_bg_white}  >
           <Container style={{ height: '100%' }}>
             {/* logo */}
             <Navbar.Brand href="/">
               <Image
                 alt=""
-                src="/next.svg"
-                width="30"
-                height="30"
-                className="d-inline-block align-top"
+                src="/logo.png"
+                width="176"
+                height="24"
+                className="d-inline-block logo"
+                style={{ position: 'absolute', top: '1rem' }}
 
               />
-              碳通科技 {scrollY}
+              {/* {scrollY} */}
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <button className={styles.toggle_btn} onClick={handleToggleClick}>
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            {/* <Navbar.Toggle as="button" onClick={handleToggleClick} /> */}
             {/* nav-bar */}
-            <Navbar.Collapse id="basic-navbar-nav" style={{ flexGrow: "0", height: '100%' }}>
-              <Nav className="me-auto nav_a" style={{ height: '100%', lineHeight: '39px' }}>
+            <Navbar.Collapse id="basic-navbar-nav" style={{ flexGrow: "0", height: '100%' }} className={styles.collapse}>
+              <Nav className={`me-auto nav_a phone_nav ${pnav ? 'phone_navs' : ''} `} style={{ lineHeight: '39px' }}>
                 <Nav.Link href={href}
                   onClick={(e) => handleClick(e, "/", query)}
                   className={((router.asPath === '/') || (router.asPath === '/?lang=En') || (router.asPath === '/?lang=Ch')) ? styles['active'] : ''}
@@ -103,35 +119,24 @@ export default function Header({ href }: any) {
                 > {t('nav.iot')}
                   <span ></span>
                 </Nav.Link>
-                {/* 碳管理服务 */}
+                {/* 产品与服务 */}
                 <Nav.Link href={href}
-                  onMouseOver={handleMouseOver}
-                  className={(router.asPath === '/Iot' || (router.asPath === '/Iot?lang=En') || (router.asPath === '/Iot?lang=Ch')) ? styles['active'] : ''}
-                  onMouseOut={handleMouseOut}
+                  onClick={(e) => handleClick(e, "/product", query)}
+                  // onMouseOver={handleMouseOver}
+                  className={(router.asPath === '/product' || (router.asPath === '/product?lang=En') || (router.asPath === '/product?lang=Ch')) ? styles['active'] : ''}
+                // onMouseOut={handleMouseOut}
                 > {t('nav.carbon')}
-                  <i className={styles.arrow}>
+                  {/* <i className={styles.arrow}>
                     <Image src="/images/arrow_down.png" alt="" />
-                  </i>
+                  </i> */}
                   <span ></span>
-                  <div className={`${styles.drop_menu} ${isHovering ? styles.show : styles.hide}`} >
+                  {/* <div className={`${styles.drop_menu} ${isHovering ? styles.show : styles.hide}`} >
                     <Row>
                       <Col>1111</Col>
                     </Row>
-                  </div>
+                  </div> */}
                 </Nav.Link>
-                {/* <NavDropdown title={t('nav.carbon')}  id="basic-nav-dropdown"  className={styles.dropColor}  >
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown> */}
+
                 <Nav.Link href="#link"
                   onClick={(e) => handleClick(e, "/customer", query)}
                   className={(router.asPath === '/customer' || (router.asPath === '/customer?lang=En') || (router.asPath === '/customer?lang=Ch')) ? styles['active'] : ''}
@@ -141,7 +146,8 @@ export default function Header({ href }: any) {
                 </Nav.Link>
                 <Nav.Link href={href}
                   onClick={(e) => handleClick(e, "/news", query)}
-                  className={(router.asPath === '/news' || (router.asPath === '/news?lang=En') || (router.asPath === '/news?lang=Ch')) ? styles['active'] : ''}>
+                  className={(router.asPath === '/news' || (router.asPath === '/news?lang=En') || (router.asPath === '/news?lang=Ch') || (router.pathname == '/detail/[id]')) ? styles['active'] : ''}>
+
                   {t('nav.news')}
                   <span ></span>
                 </Nav.Link>
@@ -151,8 +157,14 @@ export default function Header({ href }: any) {
                   {t('nav.contact')}
                   <span ></span>
                 </Nav.Link>
+                <Nav.Link href={href}
+                  onClick={(e) => handleClick(e, "/qa", query)}
+                  className={(router.asPath === '/qa' || (router.asPath === '/qa?lang=En') || (router.asPath === '/qa?lang=Ch')) ? styles['active'] : ''}>
+                  {t('nav.qa')}
+                  <span ></span>
+                </Nav.Link>
                 <Nav.Link>
-                  <nav className={styles.langSwitcher}>
+                  <nav className={styles.langSwitcher} onClick={handleToggleClick}>
                     <LanguageSwitcher lang="En">En</LanguageSwitcher> /{' '}
                     <LanguageSwitcher lang="Ch">简</LanguageSwitcher>  </nav>
                 </Nav.Link>

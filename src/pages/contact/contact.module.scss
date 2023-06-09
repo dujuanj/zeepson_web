@@ -1,0 +1,139 @@
+.part1{
+  margin-top:4.1rem;
+  position: relative;
+  // .part1_img{
+  //   position:absolute;
+  //       left:50%;    /* 定位父级的50% */
+  //       top:40%;
+  //       transform: translate(-50%,-50%); /*自己的50% */
+  // }
+  .part1_text{
+    position: absolute;
+    top:35%;
+    width:100%;
+    text-align: center;
+    font-size: 56px;
+    color:#fff;
+  }
+}
+.top{
+  margin-top:4.56rem;
+  margin-bottom: 4rem;
+  .text{
+    padding-right:2.2rem;
+    margin-top:2rem;
+    h1{
+      margin-bottom: 1.5rem;
+    }
+    p{
+      text-align: justify;
+      line-height: 1.875rem;
+      font-size:0.875rem;
+    }
+  }
+  ul{
+    height: 10.25rem;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 13px 0px rgba(178,178,178,0.5);
+    border-radius: 16px;
+    width: 69%;
+    position: relative;
+    top: -3rem;
+    z-index: 1000;
+    li{
+      list-style: none;
+      float: left;
+      div{
+         border-right:1px solid #DEDEDE;
+          padding: 0 3rem;
+          text-align: center;
+          margin-top:2.5rem;
+          img{
+            width:3.125rem;
+            height:3.125rem;
+          }
+          .small{
+            width:2.5rem;
+            height:2.5rem;
+            margin-bottom: 0.6rem;
+          }
+          p{
+            font-size: 0.875rem;
+          }
+      }
+     
+    }
+  };
+}
+
+@media screen and (max-width: 1400px){
+  .top{
+    ul{
+      width:72%;
+       top:-4rem;
+    }
+  }
+}
+@media screen and (max-width: 1200px){
+  .top{
+    ul{
+      width:90%;
+      top:0rem;
+    }
+  }
+}
+@media screen and (max-width: 991px){
+  .top{
+    ul{
+      width:100%;
+      li{
+        div{
+            padding: 0 2rem;
+      }
+      }
+    }
+  }
+}
+@media screen and (max-width: 765px){
+  .top{
+    ul{
+      width:100%;
+      li{
+        div{
+            padding: 0 1rem;
+      }
+      }
+    }
+  }
+}
+@media  screen and (max-width: 576px){
+  .top{
+    .ul{
+      height: '26rem';
+    }
+    .text{
+      padding-right: 0;
+    }
+    p{
+      text-align: unset;
+    }
+  }
+  .part1{
+    margin-top:4.1rem;
+    img{
+      height: 260px!important;
+    }
+    .part1_text{
+      font-size:2.2rem;
+    }
+  }
+  .part2{
+    margin-top:70px !important;
+  }
+  .p_ul{
+    height: 26rem !important;
+    li{
+      width:10rem;
+    }
+  }
+}

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3005",
     "build": "next build & next export",
     "start": "next start",
     "lint": "next lint",
@@ -16,6 +16,8 @@
     "@types/react-dom": "18.0.10",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.2.3",
+    "echarts": "^5.4.2",
+    "echarts-for-react": "^3.0.2",
     "eslint": "^8.35.0",
     "eslint-config-next": "13.1.2",
     "global": "^4.4.0",
@@ -36,6 +38,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
-    "prettier": "^2.8.3"
+    "prettier": "^2.8.3",
+    "sass": "^1.60.0"
   }
 }
