@@ -261,8 +261,6 @@ export default function Home() {
               <div className={styles.partnerslogo}>
                 <img src="/images/orac.png" alt="" />
               </div></Col>
-
-
             <Col xs={4} sm={3} md={2}>
               <div className={styles.partnerslogo}>
                 <img src="/images/shene.png" alt="" />
@@ -284,7 +282,6 @@ export default function Home() {
               <img src="/images/guang.png" alt="" />
             </div>
             </Col>
-
             <Col xs={4} sm={3} md={2}>
               <div className={styles.partnerslogo}>
                 <img src="/images/cetcz.png" alt="" />
@@ -305,7 +302,6 @@ export default function Home() {
             <Col xs={4} sm={3} md={2}> <div className={styles.partnerslogo}>
               <img src="/images/bs.png" alt="" />
             </div></Col>
-
             <Col xs={4} sm={3} md={2}>
               <div className={styles.partnerslogo}>
                 <img src="/images/gs.png" alt="" />
@@ -328,17 +324,12 @@ export default function Home() {
             </div></Col>
           </Row>
         </Container>
-
       </div >
-
-
       <style type="text/css">{`
           .d_card{
             margin-right:2rem;
           }
-
       `}
-
       </style>
     </>
   );
