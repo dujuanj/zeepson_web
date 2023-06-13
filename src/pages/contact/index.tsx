@@ -95,38 +95,42 @@ export default function Home() {
             </Row>
             <Row>
               <Col>
-                <ul className={curStyle.p_ul}>
-                  <li>
-                    <div>
-                      <img src="/images/about_10.png" alt="" />
-                      <p>{t('about.txt1')}</p>
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <img src="/images/about_30.png" alt="" />
-                      <p>{t('about.txt2')}</p>
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <img src="/images/about_ai.png" alt="" className={curStyle.small} />
-                      <p>{t('about.txt3')}</p>
-                    </div>
-                  </li>
-                  <li>
-                    <div>
-                      <img src="/images/about_chain.png" alt="" className={curStyle.small} />
-                      <p>{t('about.txt4')}</p>
-                    </div>
-                  </li>
-                  <li>
-                    <div style={{ borderRight: 'none' }}>
-                      <img src="/images/about_iot.png" alt="" className={curStyle.small} />
-                      <p>{t('about.txt5')}</p>
-                    </div>
-                  </li>
-                </ul>
+                <div className={curStyle.p_ul}>
+                  <Container>
+                    <Row>
+                      <Col className={curStyle.col}>
+                        <div>
+                          <img src="/images/about_10.png" alt="" />
+                          <p>{t('about.txt1')}</p>
+                        </div>
+                      </Col>
+                      <Col className={curStyle.col}>
+                        <div>
+                          <img src="/images/about_30.png" alt="" />
+                          <p>{t('about.txt2')}</p>
+                        </div></Col>
+                      <Col className={curStyle.col}>
+                        <div>
+                          <img src="/images/about_ai.png" alt="" className={curStyle.small} />
+                          <p>{t('about.txt3')}</p>
+                        </div>
+                      </Col>
+                      <Col className={curStyle.col}>
+                        <div>
+                          <img src="/images/about_chain.png" alt="" className={curStyle.small} />
+                          <p>{t('about.txt4')}</p>
+                        </div>
+                      </Col>
+                      <Col className={curStyle.col}>
+                        <div style={{ borderRight: 'none' }}>
+                          <img src="/images/about_iot.png" alt="" className={curStyle.small} />
+                          <p>{t('about.txt5')}</p>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </div>
+
               </Col>
             </Row>
           </Container>

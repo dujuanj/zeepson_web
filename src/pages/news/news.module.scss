@@ -51,6 +51,7 @@
 .card_body{
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
+  height: 128px;
 }
 .arrow_right {
   position: relative;
@@ -66,8 +67,8 @@
   left: 50%;
   width: 10px;
   height: 10px;
-  border-top: 2px solid;
-  border-right: 2px solid;
+  border-top: 1px solid;
+  border-right: 1px solid;
   transform: translate(-50%, -50%) rotate(45deg);
 }
 

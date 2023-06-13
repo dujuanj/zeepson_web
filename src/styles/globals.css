@@ -244,8 +244,8 @@ margin-top:14px;
     height:8rem;
   }
   .pt2_bg{
-    display: inline-block;
-    height:44rem;
+    /* display: inline-block; */
+    /* height:44rem; */
   }
   .prt3_img{
     width:14rem!important;
@@ -293,8 +293,8 @@ margin-top:14px;
 }
 @media  screen and (max-width: 576px){
   .pt2_bg{
-    display: inline-block;
-    height:0;
+    /* display: inline-block;
+    height:0; */
   }
   .logo{
     width:5rem;

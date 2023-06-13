@@ -4,7 +4,8 @@ import Header from 'components/header';
 import Footer from 'components/footer'
 import Chart from 'components/chart'
 import Head from 'next/head';
-import Image from 'react-bootstrap/Image'
+// import Image from 'react-bootstrap/Image'
+import Image from 'next/legacy/image'
 import styles from '@/styles/Home.module.scss';
 import aniStyle from '@/styles/animates.module.css';
 import Carousel from 'react-bootstrap/Carousel';
@@ -94,7 +95,8 @@ export default function Home() {
         <Col>
           <Carousel className={styles.carousel}>
             <Carousel.Item>
-              <Image className="d-block w-100" src="/images/index_bg1.png" alt="First slide"
+              <Image className="d-block w-100" src="/images/index_bg1.png" alt="First slide" width={1440}
+                height={810} layout='responsive'
               />
               <Carousel.Caption>
                 {/* <div className={styles.ctitle}>kafjwo</div> */}
@@ -104,11 +106,8 @@ export default function Home() {
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <Image
-                className="d-block w-100"
-                src="/images/index_bg1.png"
-                alt="Second slide"
-
+              <Image className="d-block w-100" src="/images/index_bg1.png" alt="First slide" width={1440}
+                height={810} layout='responsive'
               />
 
               <Carousel.Caption>
@@ -118,11 +117,8 @@ export default function Home() {
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <Image
-                className="d-block w-100"
-                src="/images/index_bg1.png"
-                alt="Third slide"
-
+              <Image className="d-block w-100" src="/images/index_bg1.png" alt="First slide" width={1440}
+                height={810} layout='responsive'
               />
 
               <Carousel.Caption>
@@ -137,7 +133,7 @@ export default function Home() {
 
       {/* part2 全球合规优势*/}
 
-      <div className={styles.part2_hg} style={{ position: 'relative', height: '50rem' }}>
+      <div className={styles.part2_hg} style={{ position: 'relative' }}>
 
         <Row >
           <Col>
@@ -156,32 +152,36 @@ export default function Home() {
                       <div className={styles.flex}>
                         <div className={styles.hg}>
                           <div >
-                            <Image src='/images/pocketbook.png' alt=''></Image>
+                            <img src='/images/pocketbook.png' alt='' />
                             <p>{t('home.fac')}</p>
                           </div>
                         </div>
                         <div className={styles.hg}>
                           <div >
-                            <Image src='/images/identity.png' alt=''></Image>
+                            <img src='/images/identity.png' alt='' />
                             <p style={{ width: '64px', margin: '4px auto' }}>{t('home.ic')}</p>
                           </div>
                         </div>
                         <div className={styles.hg}>
                           <div >
-                            <Image src='/images/goods.png' alt=''></Image>
+                            <img src='/images/goods.png' alt='' />
                             <p style={{ width: '64px', margin: '4px auto' }}>{t('home.pc')}</p>
                           </div>
                         </div>
                         <div className={styles.hg} style={{ marginRight: '0' }}>
                           <div >
-                            <Image src='/images/flow.png' alt=''></Image>
+                            <img src='/images/flow.png' alt='' />
                             <p style={{ width: '64px', margin: '4px auto' }}>{t('home.psc')}</p>
                           </div>
                         </div>
                       </div>
                     </Col>
-                    <Col xs={6} md={4}>
-                      <Image className={`${styles.phone_hide} styles.bg2 animate__animated  ${apt2_l ? 'animate__backInRight' : ''}`} src='/images/bg2_inner.png' alt='' style={{ width: '100%' }}></Image>
+                    <Col xs={6} md={4} className={styles.phone_hide}>
+                      <Image className={`styles.bg2 animate__animated  ${apt2_l ? 'animate__backInRight' : ''}`} src='/images/bg2_inner.png' alt=''
+                        width={358} // 宽度
+                        height={383} // 高度
+                        layout='responsive' // 布局方式设置为响应式
+                      ></Image>
                     </Col>
                   </Row>
                 </Container>
@@ -194,14 +194,22 @@ export default function Home() {
           </Col>
         </Row>
 
-        <Image className={styles.pt2_bg} src='/images/pt2_bg.png' alt='' style={{ width: '100%' }}></Image>
+        <Image className={styles.pt2_bg} src='/images/pt2_bg.png' alt=''
+          width={1440}
+          height={810}
+          layout='responsive'
+        ></Image>
       </div >
 
       {/* part3 从碳计量到碳资产全程系统服务产品体系 */}
       < Container className={styles.measure} >
         <h2 className={`center animate__animated opacity_0  ft_48 ${apt3 ? 'animate__fadeInDown' : ''}`}>{t('home.p2_fcm')}</h2>
         <div className={`center ${styles.mimg}`}>
-          <Image src='/images/measure.png' style={{ width: '100%' }}></Image>
+          <Image src='/images/measure.png'
+            width={1089} // 宽度
+            height={650} // 高度
+            layout='responsive' // 布局方式设置为响应式
+          ></Image>
           <div className={styles.mcnc}>CNC <br />碳中和通</div>
           <div className={styles.mcf}>
             {t('home.ps_cf1')} <br />
