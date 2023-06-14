@@ -3,13 +3,15 @@ import Header from 'components/header';
 import Head from 'next/head';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import Image from 'react-bootstrap/Image'
+import Image from 'next/legacy/image'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styles from '@/styles/Home.module.scss';
 import c from './product.module.scss'
+import { Section, SectionLeft, SectionRight, SectionBottom, SlideInAnimation } from 'components/framer';
+import { useInView } from "framer-motion";
 
 import {
   useTranslation,
@@ -20,6 +22,8 @@ export default function Home() {
   const { t } = useTranslation();
   const [activekey, setActivekey] = useState('first')
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   const [animates, setAnimater] = useState(true)
   useEffect(() => {
@@ -39,7 +43,7 @@ export default function Home() {
       window.removeEventListener("scroll", handleScroll);
 
     };
-  }, []);
+  }, [isInView]);
   if (!hydrated) {
     // Returns null on first render, so the client and server match
     return null;
@@ -60,10 +64,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <div className={`${c.part1} part_top`}>
-        <Image src='/images/prod_bg.png' width='100%' style={{ height: '410px' }}></Image>
-        <h1 className={`animate__animated center ${c.h1} ${animates ? 'animate__fadeInDown' : ''} `}>CNC</h1>
-        <h1 className={`animate__animated center ${animates ? 'animate__fadeInDown' : ''} `}>{t('prd.title')}</h1>
+        <Image src='/images/prod_bg.png'
+          width={1440}
+          height={410} layout='responsive'
+        ></Image>
+        <Section>
+          <Container>
+            <h1 className={`${c.h1}`}>CNC</h1>
+            <h1 >{t('prd.title')}</h1>
+          </Container>
 
+        </Section>  
       </div>
       <div className={c.part2}>
 
@@ -72,44 +83,53 @@ export default function Home() {
             <Container>
               <Row>
                 <Col>
-                  {/* {className = "flex-column"} */}
                   <Nav variant="" style={{ width: '100%' }} >
                     <Nav.Item style={{ width: '25%' }}>
                       <Nav.Link eventKey="first">
-                        <div className={`${activekey == 'first' ? `${c.active}` : ''}`}>
+                        <SlideInAnimation index={1}>
+                          <div className={`${activekey == 'first' ? `${c.active}` : ''}`}>
                           <p className={c.number}><span>1</span></p>
                           <p className={c.title}>{t('prd.pt1_title')}</p>
-                          <div className={c.triangle}></div>
-
+                            <div className={c.triangle}></div>
                         </div>
+                        </SlideInAnimation>
 
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item style={{ width: '25%' }}>
                       <Nav.Link eventKey="second">
-                        <div className={`${activekey == 'second' ? `${c.active}` : ''}`}>
+                        <SlideInAnimation index={2}>
+                          <div className={`${activekey == 'second' ? `${c.active}` : ''}`}>
                           <p className={c.number}><span>2</span></p>
                           <p className={c.title}>{t('prd.pt2_title')}</p>
                           <div className={c.triangle}></div>
                         </div>
+                        </SlideInAnimation>
+
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item style={{ width: '25%' }}>
                       <Nav.Link eventKey="three">
-                        <div className={`${activekey == 'three' ? `${c.active}` : ''}`}>
+                        <SlideInAnimation index={3}>
+                          <div className={`${activekey == 'three' ? `${c.active}` : ''}`}>
                           <p className={c.number}><span>3</span></p>
                           <p className={c.title}>{t('prd.pt3_title')}</p>
                           <div className={c.triangle}></div>
                         </div>
+                        </SlideInAnimation>
+
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item style={{ width: '25%' }}>
                       <Nav.Link eventKey="four">
-                        <div className={`${activekey == 'four' ? `${c.active}` : ''}`}>
+                        <SlideInAnimation index={4}>
+                          <div className={`${activekey == 'four' ? `${c.active}` : ''}`}>
                           <p className={c.number}><span>4</span></p>
                           <p className={c.title}>{t('prd.pt4_title')}</p>
                           <div className={c.triangle}></div>
                         </div>
+                        </SlideInAnimation>
+
                       </Nav.Link>
                     </Nav.Item>
                   </Nav>
@@ -124,14 +144,23 @@ export default function Home() {
                     <Container>
                       <Row>
                         <Col sm={6} xs={12}>
-                          <Image className="p-3 mb-5 bg-white rounded" src='/images/prd_1.png' width='100%' ></Image>
+                          <SectionLeft>
+                            <Image src='/images/prd_1.png'
+                              width={588}
+                              height={471} layout='responsive'
+                            ></Image>
+                          </SectionLeft>
+
                         </Col>
-                        <Col sm={6} xs={12}>
-                          <div className={c.right_wrap}>
+                        <Col sm={6} xs={12} style={{ alignSelf: 'center' }}>
+                          <SectionRight>
+                            <div className={c.right_wrap}>
                             <h2>{t('prd.pt1_title')}</h2>
                             <p>{t('prd.pt1_content')}</p>
                             <a href="" className={c.btn}>{t('prd.detail')}  &gt;</a>
                           </div>
+                          </SectionRight>
+
 
                         </Col>
                       </Row>
@@ -141,15 +170,21 @@ export default function Home() {
                     <Container>
                       <Row>
                         <Col sm={6} xs={12}>
-                          <Image className="p-3 mb-5 bg-white rounded" src='/images/prd_2.png' width='100%' ></Image>
+                          <SectionLeft>
+                            <Image src='/images/prd_2.png'
+                              width={588}
+                              height={471} layout='responsive'
+                            ></Image>
+                          </SectionLeft>
                         </Col>
-                        <Col sm={6} xs={12}>
-                          <div className={c.right_wrap}>
+                        <Col sm={6} xs={12} style={{ alignSelf: 'center' }}>
+                          <SectionRight>
+                            <div className={c.right_wrap}>
                             <h2>{t('prd.pt2_title')}</h2>
                             <p>{t('prd.pt2_content')}</p>
                             <a href="" className={c.btn}>{t('prd.detail')}  &gt;</a>
                           </div>
-
+                          </SectionRight>
                         </Col>
                       </Row>
                     </Container>
@@ -158,14 +193,23 @@ export default function Home() {
                     <Container>
                       <Row>
                         <Col sm={6} xs={12}>
-                          <Image className="p-3 mb-5 bg-white rounded" src='/images/prd_3.png' width='100%' ></Image>
+                          <SectionLeft>
+                            <Image src='/images/prd_3.png'
+                              width={588}
+                              height={471} layout='responsive'
+                            ></Image>
+                          </SectionLeft>
+
                         </Col>
-                        <Col sm={6} xs={12}>
-                          <div className={c.right_wrap}>
+                        <Col sm={6} xs={12} style={{ alignSelf: 'center' }}>
+                          <SectionRight>
+                            <div className={c.right_wrap}>
                             <h2>{t('prd.pt3_title')}</h2>
                             <p>{t('prd.pt3_content')}</p>
                             <a href="" className={c.btn}>{t('prd.detail')}  &gt;</a>
                           </div>
+                          </SectionRight>
+
 
                         </Col>
                       </Row>
@@ -175,15 +219,21 @@ export default function Home() {
                     <Container>
                       <Row>
                         <Col sm={6} xs={12}>
-                          <Image className="p-3 mb-5 bg-white rounded" src='/images/prd_4.png' width='100%' ></Image>
+                          <SectionLeft>
+                            <Image src='/images/prd_4.png'
+                              width={588}
+                              height={471} layout='responsive'
+                            ></Image>
+                          </SectionLeft>
                         </Col>
-                        <Col sm={6} xs={12}>
-                          <div className={c.right_wrap}>
+                        <Col sm={6} xs={12} style={{ alignSelf: 'center' }}>
+                          <SectionRight>
+                            <div className={c.right_wrap}>
                             <h2>{t('prd.pt4_title')}</h2>
                             <p>{t('prd.pt4_content')}</p>
                             <a href="" className={c.btn}>{t('prd.detail')} &gt;</a>
                           </div>
-
+                          </SectionRight>
                         </Col>
                       </Row>
                     </Container>

@@ -293,8 +293,8 @@ margin-top:14px;
 }
 @media  screen and (max-width: 576px){
   .pt2_bg{
-    /* display: inline-block;
-    height:0; */
+    display: inline-block;
+    height:0 !important;
   }
   .logo{
     width:5rem;

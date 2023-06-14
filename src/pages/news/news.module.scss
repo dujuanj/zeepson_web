@@ -34,8 +34,8 @@
       transition: box-shadow 0.3s ease; /* 添加阴影的过渡效果 */
     }
     .d_card_img{
-      width:100%;
-      // height:280px;
+       border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
     }
   }
   .d_card{
@@ -51,7 +51,10 @@
 .card_body{
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
-  height: 128px;
+  padding-bottom: 0;
+  div{
+    height: 48px;
+  }
 }
 .arrow_right {
   position: relative;

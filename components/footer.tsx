@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import React, { useState, useEffect, useRef } from 'react';
-// import curStyle from './layout.module.css';
+// import curStyle from './layout.module.scss';
 import { useRouter } from 'next/router'
 import {
   useTranslation,

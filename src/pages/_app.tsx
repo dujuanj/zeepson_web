@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "../../components/header";
 import Footer from "../../components/footer";
-import SSRProvider from 'react-bootstrap/SSRProvider'
+// import SSRProvider from 'react-bootstrap/SSRProvider'
 import { Inter } from '@next/font/google'
 import 'animate.css';
 
@@ -16,15 +16,11 @@ export default function App({ Component, pageProps }: AppProps) {
   }
 `}</style>
   return (
-
     <>
-      <div className="app">
         <div >
-          <Header />
-          <Component {...pageProps} />
-
-          <Footer />
-        </div>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
       </div>
     </>
   )

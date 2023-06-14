@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import React, { useState, useEffect, useRef } from 'react';
 import ReactEcharts from 'echarts-for-react'
 import postData from '../src/pages/api/hello';
-import c from './layout.module.css';
+import c from './layout.module.scss';
 
 // 定义接口
 const params = new URLSearchParams();

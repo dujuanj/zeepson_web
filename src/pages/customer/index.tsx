@@ -2,17 +2,17 @@ import ReactEcharts from 'echarts-for-react'
 import React, { useState, useEffect, useRef } from 'react';
 import Header from 'components/header';
 import Head from 'next/head';
-// import Image from 'next/image';
-// import { Inter } from '@next/font/google';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image'
+import Image from 'next/legacy/image'
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
 import styles from '@/styles/Home.module.scss';
 import varables from '@/styles/variables.module.scss'
 import c from './customer.module.scss'
+import { useInView } from "framer-motion";
+import { Section, SectionLeft, SectionRight, SectionBottom, SlideInAnimation } from 'components/framer';
 // 翻译
 import {
   useTranslation,
@@ -24,100 +24,16 @@ export default function Home() {
   const [option, setOption] = useState({})
   const [hydrated, setHydrated] = useState(false);
 
-  // 动画
-  const [animates, setAnimater] = useState(true)
-  const [apt1_l, setApt1_l] = useState(true)
-  const [apt1_r, setaptr_l] = useState(true)
-  const [apt2_l, setApt2_l] = useState(false)
-  const [apt2_r, setapt2_r] = useState(false)
-  const [apt3, setApt3] = useState(false)
-  const [apt4, setApt4] = useState(false)
-  const [apt5, setApt5] = useState(false)
-  const [apt6, setApt6] = useState(false)
-  const [apt7_l, setApt7_l] = useState(false)
-  const [apt7_r, setapt7_r] = useState(false)
-  const [apt8, setApt8] = useState(false)
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
     setHydrated(true);
-    function handleScroll() {
-      const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
-      // console.log(scrollTop)
-
-      if (scrollTop > 520) {
-        setApt2_l(true)
-        setapt2_r(true)
-        // setApt1_l(true)
-      }
-      if (scrollTop > 1310) {
-        setApt3(true);
-      }
-      if (scrollTop > 2900) {
-        setApt4(true);
-      }
-      if (scrollTop > 3900) {
-        setApt5(true);
-      }
-      if (scrollTop > 4700) {
-        setApt6(true);
-      }
-      if (scrollTop > 5520) {
-        setApt7_l(true)
-        setapt7_r(true)
-      }
-      if (scrollTop > 6360) {
-        setApt8(true);
-      }
-    }
-    setTimeout(() => {
-      setApt1_l(false)
-      setaptr_l(false)
-      setApt2_l(false)
-      setapt2_r(false)
-      setApt3(false)
-      setApt4(false)
-      setApt5(false)
-      setApt6(false)
-      setApt7_l(false)
-      setapt7_r(false)
-      setApt8(false)
-    }, 2000)
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-
-    };
   }, []);
   if (!hydrated) {
     // Returns null on first render, so the client and server match
     return null;
   }
-
-  // useEffect(() => {
-  //   const productOption = {
-  //     xAxis: {
-  //       type: 'category',
-  //       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-  //     },
-  //     yAxis: {
-  //       type: 'value',
-  //     },
-  //     series: [
-  //       {
-  //         data: [820, 932, 901, 934, 1290, 1330, 1320],
-  //         type: 'line',
-  //       },
-  //       {
-  //         data: [720, 632, 401, 334, 1290, 1330, 720],
-  //         type: 'line',
-  //       }
-
-  //     ],
-  //   };
-  //   setOption(productOption)
-  // }, [])
-
   return (
     <>
 
@@ -131,8 +47,9 @@ export default function Home() {
         <div className={c.top}>
           <Container>
             <Row>
-              <Col md={6} className={`${c.order2} animate__animated  ${apt1_l ? 'animate__backInLeft' : ''}`} style={{ alignSelf: 'center' }}>
-                <div>
+              <Col md={6} className={`${c.order2}`} style={{ alignSelf: 'center' }}>
+                <SectionLeft>
+                  <div>
                   <h1 className={`${c.pt1_title}`}>{t('cases.pt1_title')}</h1>
                   <p className={c.mob_bot_0}>{t('cases.pt1_text')}</p>
                   <div className='myflex' style={{ marginTop: '2.5rem' }}>
@@ -150,9 +67,17 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+                </SectionLeft>
+
               </Col>
-              <Col md={6} className={`center ${c.order1} animate__animated  ${apt1_r ? 'animate__backInRight' : ''}`} >
-                <Image src='/images/product2.png' width='100%' ></Image>
+              <Col md={6} className={`center ${c.order1}`} >
+                <SectionRight>
+                  <Image src='/images/product2.png'
+                    width={600}
+                    height={618} layout='responsive'
+                  ></Image>
+                </SectionRight>
+
               </Col>
             </Row>
 
@@ -166,11 +91,18 @@ export default function Home() {
       <div className={c.pt2Wrap}>
         <div className="container">
           <Row>
-            <Col md={4} className={`opacity_0 animate__animated  ${apt2_l ? 'animate__backInLeft' : ''}`} style={{ alignSelf: 'center' }}>
-              <Image src='/images/product_pt2.png' width='100%'></Image>
+            <Col md={4} style={{ alignSelf: 'center' }}>
+              <SectionLeft>
+                <Image src='/images/product_pt2.png'
+                  width={420}
+                  height={600} layout='responsive'
+                ></Image>
+              </SectionLeft>
+
             </Col>
-            <Col md={8} style={{ alignSelf: 'center' }} className={`opacity_0 animate__animated  ${apt2_r ? 'animate__backInRight' : ''}`} >
-              <div className={`ml_2 ${c.mleft_0}`}>
+            <Col md={8} style={{ alignSelf: 'center' }}  >
+              <SectionRight>
+                <div className={`ml_2 ${c.mleft_0}`}>
                 <h1 className={`${c.pt1_title} mt_2`}>{t('cases.pt2_title')}</h1>
                 <p>{t('cases.pt2_text1')}</p>
                 <p>{t('cases.pt2_text2')}</p>
@@ -195,6 +127,8 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              </SectionRight>
+
 
             </Col>
           </Row>
@@ -205,71 +139,87 @@ export default function Home() {
         <Card className="bg-dark text-white">
           <Card.Img src="/images/cases_pt3_banner.png" alt="Card image" className={c.scard_img} />
           <Card.ImgOverlay>
-            <Card.Title className={` animate__animated opacity_0 ${apt3 ? 'animate__fadeInDown' : ''}`}>
+            <Card.Title>
               {/* <div className='container'> <h1 style={{ marginTop: '3.5rem' }}>某全球PCB头部公司</h1></div> */}
-              <h1 className='container' style={{ marginTop: '3.5rem' }}>{t('cases.pt3_title')}</h1>
-
+              <SectionBottom>
+                <h1 className='container' style={{ marginTop: '3.5rem' }}>{t('cases.pt3_title')}</h1>
+              </SectionBottom>
             </Card.Title>
-
-
-            <div className={`container animate__animated opacity_0 ${apt3 ? 'animate__fadeInDown' : ''}`} >
-              <div className={c.number} style={{ float: 'left', marginRight: '6.25rem' }}>
+            <div className='container'>
+              <SectionBottom>
+                <div className={c.number} style={{ float: 'left', marginRight: '6.25rem' }}>
                 <p>{t('cases.pt3_sub1')}</p>
                 <p>{t('cases.pt3_sub1_1')}</p>
               </div>
-              <div className={c.number} style={{ float: 'left' }}>
+              </SectionBottom>
+              <SectionBottom>
+                <div className={c.number} style={{ float: 'left' }}>
                 <p>{t('cases.pt3_sub2')}</p>
                 <p>{t('cases.pt3_sub2_1')}</p>
-              </div>
+                </div>
+              </SectionBottom>
             </div>
-
-
-
           </Card.ImgOverlay>
         </Card>
       </div>
-      <div className={`container ${c.chat_wrap}`} style={{ position: 'relative', height: '38rem' }}>
+      <SectionBottom>
+        <div className={`container ${c.chat_wrap}`} style={{ position: 'relative', height: '33rem' }}>
         <div className={c.chart}>
           <div className={c.charthead}>
             <p>{t('cases.pt4')}</p>
           </div>
           <div className={c.chartfooter}>
             {/* <div id='chart'><ReactEcharts option={option} /></div> */}
-            <img src='/images/charts.png' width='100%' />
+              <Image src='/images/charts.png'
+                width={1088}
+                height={435} layout='responsive'
+              ></Image>
           </div>
         </div>
       </div >
+      </SectionBottom>
+
       {/* cass */}
       < div className='container' >
         <Row className={c.cass_wrap}>
-          <Col md={3} sm={12} className={c.md}>
-            <div className={c.cass_left}>
+          <Col md={4} sm={12} className={c.md}>
+            <SlideInAnimation index={1}>
+              <div className={c.cass_left}>
               <img src="/images/hook.png" alt="" />
               <span>{t('cases.pt5_left1')}</span>
               <p>{t('cases.pt5_left1_1')}</p>
             </div>
-            <div className={c.cass_left}>
+              <div className={`${c.cass_left} ${c.cass_left_2}`}>
               <img src="/images/hook.png" alt="" />
               <span>{t('cases.pt5_left2')}</span>
               <p>{t('cases.pt5_left2_1')}</p>
             </div>
-            <div className={c.cass_left}>
+              <div className={`${c.cass_left} ${c.cass_left_2}`}>
               <img src="/images/hook.png" alt="" />
               <span>{t('cases.pt5_left3')}</span>
               <p>{t('cases.pt5_left3_1')}</p>
             </div>
+            </SlideInAnimation>
+
           </Col>
-          <Col md={6} sm={12} className={c.md}>
-            <div className={`${c.cassimg} center`}>
-              <Image src='/images/cass.png'></Image>
+          <Col md={4} sm={12} className={c.md}>
+            <SlideInAnimation index={2}>
+              <div className={`${c.cassimg} center`}>
+                <Image src='/images/cass.png'
+                  width={488}
+                  height={489} layout='responsive'
+                ></Image>
               <div>
                 <p>CaaS</p>
                 <p>一站式碳服务</p>
               </div>
             </div>
+            </SlideInAnimation>
+
           </Col>
-          <Col md={3} sm={12} className={c.md}>
-            <div className={c.cass_left}>
+          <Col md={4} sm={12} className={c.md}>
+            <SlideInAnimation index={3}>
+              <div className={c.cass_left}>
               <img src="/images/hook.png" alt="" />
               <span>{t('cases.pt5_right1')}</span>
               <p>{t('cases.pt5_right1_1')}</p>
@@ -289,6 +239,8 @@ export default function Home() {
               <span>{t('cases.pt5_right4')}</span>
               <p>{t('cases.pt5_right4_1')}</p>
             </div>
+            </SlideInAnimation>
+
           </Col>
         </Row>
       </div >
@@ -297,44 +249,74 @@ export default function Home() {
       }>
 
         <div className='container'>
-          <h1 className={` animate__animated opacity_0 ${apt4 ? 'animate__fadeInDown' : ''}`}>{t('cases.pt6_title')}</h1>
+          <SectionBottom>
+            <h1>{t('cases.pt6_title')}</h1>
+          </SectionBottom>
+
           <Row className={c.distributed}>
             <Col md={3} sm={6}>
-              <div>
-                <Image src='/images/sche1.png' width='100%'></Image>
+              <SlideInAnimation index={1}>
+                <div>
+                  <Image src='/images/sche1.png'
+                    width={285}
+                    height={218} layout='responsive'
+                  ></Image>
                 <p className={c.mo_font_12}>{t('cases.pt6_text1')}</p>
               </div>
+              </SlideInAnimation>
+
             </Col>
             <Col md={3} sm={6}>
-              <div>
-                <Image src='/images/sche2.png' width='100%'></Image>
+              <SlideInAnimation index={2}>
+                <div>
+                  <Image src='/images/sche2.png'
+                    width={285}
+                    height={218} layout='responsive'
+                  ></Image>
                 <p className={c.mo_font_12}> {t('cases.pt6_text2')}</p>
               </div>
+              </SlideInAnimation>
+
             </Col>
             <Col md={3} sm={6}>
-              <div>
-                <Image src='/images/sche3.png' width='100%'></Image>
+              <SlideInAnimation index={3}>
+                <div>
+                  <Image src='/images/sche3.png'
+                    width={285}
+                    height={218} layout='responsive'
+                  ></Image>
                 <p className={c.mo_font_12}>{t('cases.pt6_text3')}</p>
               </div>
+              </SlideInAnimation>
+
             </Col>
             <Col md={3} sm={6}>
-              <div>
-                <Image src='/images/sche4.png' width='100%'></Image>
+              <SlideInAnimation index={4}>
+                <div>
+                  <Image src='/images/sche4.png'
+                    width={285}
+                    height={218} layout='responsive'
+                  ></Image>
                 <p className={c.mo_font_12}>{t('cases.pt6_text4')}</p>
               </div>
+              </SlideInAnimation>
+
             </Col>
 
           </Row>
           <div className={c.schembot}>
-            <h3>{t('cases.pt6_sub')}</h3>
-            <span>{t('cases.pt6_sub_samll')}</span>
+            <SectionBottom>
+              <h3>{t('cases.pt6_sub')}</h3>
+              <span>{t('cases.pt6_sub_samll')}</span>
+            </SectionBottom>
+
           </div>
         </div>
         {/* {减排效应举例} */}
         <div className='container mt_24 '>
           <Row >
             <Col sm={6} md>
-              <div className={c.effect}>
+              <SlideInAnimation index={1}> <div className={c.effect}>
                 <div className={`flex ${c.photovoltaic}`}>
                   <div className={c.pho_1}>
                     <h6>Coal</h6>
@@ -356,10 +338,12 @@ export default function Home() {
                   <h6>82000</h6>
                   <div>{t('cases.pt6_year')}</div>
                 </div>
-              </div>
+              </div></SlideInAnimation>
+
             </Col>
             <Col sm={6} md>
-              <div className={c.effect}>
+              <SlideInAnimation index={2}>
+                <div className={c.effect}>
                 <div className={`flex ${c.photovoltaic}`}>
                   <div className={c.pho_1}>
                     <h6>Carbon Dust</h6>
@@ -381,9 +365,12 @@ export default function Home() {
                   <h6>6800</h6>
                   <div>{t('cases.pt6_year')}</div>
                 </div>
-              </div></Col>
+                </div>
+              </SlideInAnimation>
+            </Col>
             <Col sm={6} md>
-              <div className={c.effect}>
+              <SlideInAnimation index={3}>
+                <div className={c.effect}>
                 <div className={`flex ${c.photovoltaic}`}>
                   <div className={c.pho_1}>
                     <h6>CO2</h6>
@@ -405,9 +392,12 @@ export default function Home() {
                   <h6>24925</h6>
                   <div>{t('cases.pt6_year')}</div>
                 </div>
-              </div></Col>
+                </div>
+              </SlideInAnimation>
+            </Col>
             <Col sm={6} md>
-              <div className={c.effect}>
+              <SlideInAnimation index={4}>
+                <div className={c.effect}>
                 <div className={`flex ${c.photovoltaic}`}>
                   <div className={c.pho_1}>
                     <h6>SO2</h6>
@@ -430,9 +420,12 @@ export default function Home() {
                   <div>{t('cases.pt6_year')}</div>
                 </div>
               </div>
+              </SlideInAnimation>
+
             </Col>
             <Col sm={6} md>
-              <div className={c.effect}>
+              <SlideInAnimation index={5}>
+                <div className={c.effect}>
                 <div className={`flex ${c.photovoltaic}`}>
                   <div className={c.pho_1} style={{ flex: 2 }}>
                     <h6>NO、NO2 等气体</h6>
@@ -454,17 +447,23 @@ export default function Home() {
                   <h6>375</h6>
                   <div>{t('cases.pt6_year')}</div>
                 </div>
-              </div></Col>
+                </div>
+              </SlideInAnimation>
+            </Col>
           </Row>
         </div>
       </div >
       {/* {分布式能源站} */}
       < div className={c.distributed} >
         <Container>
-          <h1 className={` animate__animated opacity_0 ${apt5 ? 'animate__fadeInDown' : ''}`}>{t('cases.pt7_title')}</h1>
+          <SectionBottom>
+            <h1 >{t('cases.pt7_title')}</h1>
+          </SectionBottom>
+
           <Row>
             <Col md={6}>
-              <Card className={c.dis_1}>
+              <SectionLeft>
+                <Card className={c.dis_1}>
                 <Card.Img variant="top" src="/images/cases_fb1.png" />
                 <Card.Body style={{ background: '#F6F8FA' }} className={c.dis_card_body} >
                   <div className={c.dis_1_1} style={{ display: 'flex' }}>
@@ -492,9 +491,12 @@ export default function Home() {
 
                 </Card.Body>
               </Card>
+              </SectionLeft>
+
             </Col>
             <Col md={6}>
-              <Card className={c.dis_2} >
+              <SectionRight>
+                <Card className={c.dis_2} >
                 <Card.Img variant="top" src="/images/cases_fb2.png" />
                 <Card.Body style={{ background: '#F6F8FA' }} className={c.dis_card_body}>
                   <div className={c.dis_1_1} style={{ display: 'flex' }}>
@@ -528,6 +530,8 @@ export default function Home() {
 
                 </Card.Body>
               </Card>
+              </SectionRight>
+
             </Col>
           </Row>
         </Container>
@@ -538,33 +542,49 @@ export default function Home() {
           <Card.Img className={c.card_img} src="/images/zjk.png" alt="Card image" />
           <Card.ImgOverlay className={c.phone_zjk}>
             <Card.Title>
-              <h1 className={`container animate__animated opacity_0 ${apt6 ? 'animate__fadeInDown' : ''}`} style={{ marginTop: '3.5rem' }}>{t('cases.pt8_title')}</h1>
+              <SectionBottom>
+                <h1 className={`container`} style={{ marginTop: '3.5rem' }}>{t('cases.pt8_title')}</h1>
+              </SectionBottom>
             </Card.Title>
-
-            <div className='container mt_4'>
+            <SectionBottom style={{ height: 'unset' }}>
+              <div className='container mt_4'>
               <p>{t('cases.pt8_text1')}</p>
               <p>{t('cases.pt8_text2')}</p>
             </div>
+            </SectionBottom>
             <div className='container' style={{ marginTop: '10px', display: 'flex' }}>
+
               <div className={`${c.number} ${c.z_number}`} style={{ flex: '2' }}>
+                <SlideInAnimation index={1}>
                 <p>199.5MW</p>
-                <p>{t('cases.pt8_t1')}</p>
+                  <p>{t('cases.pt8_t1')}</p>
+                </SlideInAnimation>
               </div>
+
+
               <div className={`${c.number} ${c.z_number}`} style={{ flex: '3' }}>
+                <SlideInAnimation index={2}>
                 <p>133台</p>
-                <p>{t('cases.pt8_t2')}</p>
+                  <p>{t('cases.pt8_t2')}</p>
+                </SlideInAnimation>
               </div>
             </div>
             <div className={`container ${c.phone_mt}`} style={{ marginTop: '3.2rem', display: 'flex' }}>
               <div className={c.number} style={{ flex: '2' }}>
-                <p>381,450MWh</p>
+                <SlideInAnimation index={1}>
+                  <p>381,450MWh</p>
                 <p>{t('cases.pt8_t3')}</p>
+                </SlideInAnimation>
               </div>
               <div className={c.number} style={{ flex: '3' }}>
-                <p>10,000单</p>
+                <SlideInAnimation index={1}>
+                  <p>10,000单</p>
                 <p>{t('cases.pt8_t4')}</p>
+                </SlideInAnimation>
               </div>
             </div>
+
+
 
 
 
@@ -575,11 +595,18 @@ export default function Home() {
       < div className={c.vehicle} >
         <Container>
           <Row>
-            <Col md={12} lg className={`opacity_0 animate__animated  ${apt7_l ? 'animate__backInLeft' : ''}`}>
-              <img src="/images/cases_zc.png" alt="" width='100%' />
+            <Col md={12} lg >
+              <SectionLeft>
+                <Image src="/images/cases_zc.png" alt=""
+                  width={560}
+                  height={618} layout='responsive'
+                ></Image>
+              </SectionLeft>
+
             </Col>
-            <Col md={12} lg className={`opacity_0 animate__animated ${c.ve_right}  ${apt7_r ? 'animate__backInRight' : ''}`}>
-              <h2>{t('cases.pt9_title')}</h2>
+            <Col md={12} lg className={` ${c.ve_right}`}>
+              <SectionRight>
+                <h2>{t('cases.pt9_title')}</h2>
               <span className={c.isospan}>(ISO 14040+ISO 14044 + ISO 14067)</span>
               <div className={c.sy}>
                 <h6>{t('cases.pt9_sub')}</h6>
@@ -646,6 +673,8 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              </SectionRight>
+
             </Col>
           </Row>
         </Container>
@@ -656,14 +685,17 @@ export default function Home() {
           <Card className={`bg - dark ${c.wrap}`} style={{ border: 'none' }}>
             <Card.Img className={c.card_img} src="/images/cases_sx.png" alt="Card image" />
             <Card.ImgOverlay>
-              <Card.Title className={` animate__animated opacity_0 ${apt8 ? 'animate__fadeInDown' : ''}`}>
-                <h1 className='container' style={{ marginTop: '3.5rem' }}>{t('cases.pt10_title')}
+              <Card.Title>
+                <SectionBottom>
+                  <h1 className='container' style={{ marginTop: '3.5rem' }}>{t('cases.pt10_title')}
                   <span className={c.small}>{t('cases.pt10_sub')}</span>
                 </h1>
+                </SectionBottom>
+
 
               </Card.Title>
-
-              <div className='container'>
+              <SectionBottom>
+                <div className='container'>
                 <p className={c.earnings}>{t('cases.pt10_c')}</p>
 
               </div>
@@ -677,6 +709,8 @@ export default function Home() {
                   <p>{t('cases.pt10_t2')}</p>
                 </div>
               </div>
+              </SectionBottom>
+
 
             </Card.ImgOverlay>
           </Card>
@@ -686,7 +720,8 @@ export default function Home() {
         <Container>
           <Row>
             <Col sm={12} md>
-              <h2>{t('cases.pt11_l1')}</h2>
+              <SectionLeft>
+                <h2>{t('cases.pt11_l1')}</h2>
               <ul>
                 <li>{t('cases.pt11_l1_1')}</li>
                 <li>{t('cases.pt11_l1_2')}</li>
@@ -695,10 +730,13 @@ export default function Home() {
               <ul>
                 <li>{t('cases.pt11_l2_1')}</li>
               </ul>
+              </SectionLeft>
+
             </Col>
             {/* 盘查报告 */}
             <Col sm={12} md className={c.report}>
-              <h2 style={{ borderBottom: 'none', paddingBottom: '8px' }}>{t('cases.pt11_r1')} </h2>
+              <SectionRight>
+                <h2 style={{ borderBottom: 'none', paddingBottom: '8px' }}>{t('cases.pt11_r1')} </h2>
               <p><span>{t('cases.pt11_r1_sb')}</span></p>
               <div style={{ background: '#F6F8FA', padding: '24px', borderRadius: '16px', marginTop: '24px' }}>
                 <Table responsive className={c.table_right}>
@@ -740,6 +778,8 @@ export default function Home() {
               <p style={{ color: '#666666', marginTop: '24px', marginBottom: '88px' }}>
                 {t('cases.pt11_bt')}
               </p>
+              </SectionRight>
+
             </Col>
           </Row>
 

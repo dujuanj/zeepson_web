@@ -67,14 +67,20 @@
 }
 .cass_left {
   margin-top:3rem;
+  img{
+    margin-right:6px;
+  }
 }
 .cass_left span{
   font-size:1.25rem;
 }
+.cass_left_2{
+  margin-top:4.2rem;
+}
 .cass_left p{
   color:#666666;
   font-size:0.875rem;
-  margin-left: 1.5rem;
+  margin-left: 1.9rem;
   margin-top:0.5rem;
 }
 .cassimg {
@@ -262,6 +268,9 @@
       color:#999;
       border:none;
     }
+   }
+   .mob_bot_0{
+    padding-right:3px;
    }
 @media screen and (max-width: 1420px){
   .mob_mt_0{

@@ -1,62 +1,35 @@
 import { useEffect, useState } from 'react'
 import Header from 'components/header';
-import Image from 'react-bootstrap/Image'
+import Image from 'next/legacy/image'
 import Head from 'next/head';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styles from '@/styles/Home.module.css';
 import curStyle from './contact.module.scss'
+import { Section, SectionLeft, SectionRight, SectionBottom } from 'components/framer';
 
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 
 import {
   useTranslation,
 } from "next-export-i18n";
-// import { Roboto } from '@next/font/google'
-
-// const roboto = Roboto({
-//   weight: '400',
-//   subsets: ['latin'],
-// })
-
+import { relative } from 'path';
 
 
 export default function Home() {
   const { t } = useTranslation();
   const [hydrated, setHydrated] = useState(false);
 
-  const [animates, setAnimater] = useState(true)
-  const [apt1, setApt1] = useState(true)
-  const [apt1_l, setApt1_l] = useState(true)
-  const [apt1_r, setApt1_r] = useState(true)
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
 
   useEffect(() => {
     setHydrated(true);
+  }, [isInView]);
 
-    function handleScroll() {
-      const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
-      // console.log(scrollTop)
-      // part1
-      // if (scrollTop > 180) {
-      //   setApt1_l(true)
-      //   setApt1_r(true)
-      // }
-      // part2
-
-    }
-    setTimeout(() => {
-      setApt1_l(false)
-      setApt1_r(false)
-      setApt1(false)
-    }, 2000)
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-
-    };
-  }, []);
   if (!hydrated) {
     // Returns null on first render, so the client and server match
     return null;
@@ -75,26 +48,39 @@ export default function Home() {
         </Head>
         <div>
           <div className={curStyle.part1}>
-            <Image src='/images/about.png' width='100%'></Image>
-            {/* <Image className={curStyle.part1_img} src='/images/valcarbon.png' width='400'></Image> */}
-            <p className={`animate__animated  ${curStyle.part1_text} ${apt1 ? 'animate__fadeInDown' : ''}`}>{t('about.text')}</p>
+            <Image src='/images/about.png'
+              width={1440}
+              height={410} layout='responsive'
+            ></Image>
+            <Section>
+              <p>{t('about.text')}</p>
+            </Section>
+
           </div>
           <Container className={curStyle.top}>
             <Row>
-              <Col md={7} className={` animate__animated  ${apt1_l ? 'animate__backInLeft' : ''}`}>
-                <div className={curStyle.text}>
+              <Col md={7} ref={ref} >
+                <SectionLeft><div className={curStyle.text}>
                   <h1>{t('about.title')}</h1>
                   <p>{t('about.content_1')}</p>
                   <p>{t('about.content_2')}</p>
-                </div>
+                </div></SectionLeft>
+
 
               </Col>
-              <Col md={5} className={` animate__animated  ${apt1_l ? 'animate__backInRight' : ''}`}>
-                <Image src='/images/about_1.png' width='100%' ></Image>
+              <Col md={5} >
+                <SectionRight>
+                  <Image src='/images/about_1.png'
+                    width={488}
+                    height={660} layout='responsive'
+                  ></Image>
+                </SectionRight>
+
               </Col>
             </Row>
-            <Row>
-              <Col>
+            <Row>  <SectionBottom>
+              <Col style={{ position: 'relative' }}>
+
                 <div className={curStyle.p_ul}>
                   <Container>
                     <Row>
@@ -130,8 +116,7 @@ export default function Home() {
                     </Row>
                   </Container>
                 </div>
-
-              </Col>
+              </Col></SectionBottom>
             </Row>
           </Container>
         </div>

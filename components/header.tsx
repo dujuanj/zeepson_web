@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import { Button } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -14,7 +13,7 @@ import {
   LanguageSwitcher,
 } from "next-export-i18n";
 
-import styles from './layout.module.css';
+import styles from './layout.module.scss';
 
 export default function Header({ href }: any) {
   const [scrollY, setScrollY] = useState(0);

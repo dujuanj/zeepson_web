@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Header from 'components/header';
 import Head from 'next/head';
-import Image from 'react-bootstrap/Image'
+import Image from 'next/legacy/image'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import { useRouter } from "next/router";
-// import { Inter } from '@next/font/google';
+import { Section, SlideInAnimation, SectionBottom } from 'components/framer';
+import { useInView } from "framer-motion";
 import styles from '@/styles/Home.module.scss';
 // 翻译
 import {
@@ -18,7 +19,9 @@ import {
 import c from './news.module.scss'
 export default function Home() {
   const [hydrated, setHydrated] = useState(false);
-
+  // 动画
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   const { t } = useTranslation();
   const router = useRouter();
 
@@ -27,28 +30,10 @@ export default function Home() {
 
   };
 
-  // 动画
-  const [animates, setAnimater] = useState(true)
-  const [apt1, setApt1] = useState(true)
 
   useEffect(() => {
     setHydrated(true);
-    function handleScroll() {
-      const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
-
-      // part1
-      setApt1(true);
-    }
-    setTimeout(() => {
-      setApt1(false)
-    }, 5000)
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-
-    };
-  }, []);
+  }, [isInView]);
   if (!hydrated) {
     // Returns null on first render, so the client and server match
     return null;
@@ -64,23 +49,36 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <div className={`${c.part1} part_top`}>
-        <Image src='/images/newbg.png' width='100%' style={{ height: '410px' }}></Image>
-        <h1 className={`animate__animated center  ${apt1 ? 'animate__fadeInDown' : ''}`}>{t('news.title')}</h1>
+        <Image src='/images/newbg.png'
+          width={1440}
+          height={410} layout='responsive'
+        ></Image>
+        <Section>
+          <p>{t('news.title')}</p>
+        </Section>
+
       </div>
       <div className={c.part2}>
-        <h1 className='center'>新闻资讯</h1>
-        <p style={{ textAlign: 'center', marginBottom: '70px' }}>这是一句内容，可以长可以很简短</p>
+        <SectionBottom>
+          <h1 className='center' style={{ width: '100%' }}>新闻资讯</h1>
+          <p style={{ textAlign: 'center', marginBottom: '70px' }}>这是一句内容，可以长可以很简短</p>
+        </SectionBottom>
+
         <div>
           <Container>
             <Row>
               <Col xs={12} md={4}>
                 <div onClick={() => handleClick(1)} className={c.d_card}>
-                  <Card className={c.card}>
-                    <Card.Img variant="top" className={c.d_card_img} src="/images/new1.png" />
+                  <SlideInAnimation index={1}>
+                    <Card className={c.card}>
+                      {/* <Card.Img variant="top" className={c.d_card_img} src="/images/new1.png" /> */}
+                      <Image src='/images/new1.png'
+                        className={c.d_card_img}
+                        width={380}
+                        height={276} layout='responsive'
+                      ></Image>
                     <Card.Body style={{ background: '#F6F8FA' }} className={c.card_body}>
-
-
-                      全球首创“企业财务+碳一体化ERP解决方案”在京推出 —促进产业……
+                        <div> 全球首创“企业财务+碳一体化ERP解决方案”在京推出 —促进产业……</div>
                       <p className={c.newsdate}>
                         <span>2022年10月13日</span>
                         <span className={c.arrow_right}>
@@ -89,14 +87,25 @@ export default function Home() {
 
                     </Card.Body>
                   </Card>
+                  </SlideInAnimation>
+
                 </div>
               </Col>
               <Col xs={12} md={4}>
                 <div className={c.d_card} onClick={() => handleClick(2)}>
-                  <Card className={c.card}>
-                    <Card.Img className={c.d_card_img} variant="top" src="/images/new2.png" />
-                    <Card.Body style={{ background: '#F6F8FA' }} className={c.card_body}>
-                      埃顿集团、新加坡绿色交易所、智普信达成战略合作 合力共举碳资产……
+                  <SlideInAnimation index={2}>
+                    <Card className={c.card}>
+                      {/* <Card.Img className={c.d_card_img} variant="top" src="/images/new2.png" /> */}
+                      <Image src='/images/new2.png'
+                        className={c.d_card_img}
+                        width={380}
+                        height={276} layout='responsive'
+                      ></Image>
+                      <Card.Body style={{ background: '#F6F8FA' }} className={c.card_body}>
+                        <div>
+                          埃顿集团、新加坡绿色交易所、智普信达成战略合作 合力共举碳资产……
+                        </div>
+
                       <p className={c.newsdate}>
                         <span>2022年10月13日</span>
                         <span className={c.arrow_right}>
@@ -104,14 +113,25 @@ export default function Home() {
                       </p>
                     </Card.Body>
                   </Card>
+                  </SlideInAnimation>
+
                 </div>
               </Col>
               <Col xs={12} md={4}>
                 <div className={c.d_card} onClick={() => handleClick(3)}>
-                  <Card className={c.card}>
-                    <Card.Img className={c.d_card_img} variant="top" src="/images/news3.png" />
-                    <Card.Body style={{ background: '#F6F8FA' }} className={c.card_body}>
-                      2022世界人工智能大会 共话低碳未来及元宇宙隐私安全
+                  <SlideInAnimation index={3}>
+                    <Card className={c.card}>
+                      {/* <Card.Img className={c.d_card_img} variant="top" src="/images/news3.png" /> */}
+                      <Image src='/images/new3.png'
+                        className={c.d_card_img}
+                        width={380}
+                        height={276} layout='responsive'
+                      ></Image>
+                      <Card.Body style={{ background: '#F6F8FA' }} className={c.card_body}>
+                        <div>
+                          2022世界人工智能大会 共话低碳未来及元宇宙隐私安全
+                        </div>
+
                       <p className={c.newsdate}>
                         <span>2022年10月13日</span>
                         <span className={c.arrow_right}>
@@ -119,6 +139,8 @@ export default function Home() {
                       </p>
                     </Card.Body>
                   </Card>
+                  </SlideInAnimation>
+
                 </div>
               </Col>
             </Row>
@@ -126,10 +148,17 @@ export default function Home() {
             <Row>
               <Col xs={12} md={4}>
                 <div onClick={() => handleClick(4)} className={c.d_card}>
-                  <Card className={c.card}>
-                    <Card.Img variant="top" className={c.d_card_img} src="/images/new4.png" />
-                    <Card.Body style={{ background: '#F6F8FA' }} className={c.card_body}>
-                      希必能源、新加坡MVGX绿色交易所、智普信就联合推动碳资产开……
+                  <SlideInAnimation index={4}>
+                    <Card className={c.card}>
+                      {/* <Card.Img variant="top" className={c.d_card_img} src="/images/new4.png" /> */}
+                      <Image src='/images/new4.png'
+                        className={c.d_card_img}
+                        width={380}
+                        height={276} layout='responsive'
+                      ></Image>
+                      <Card.Body style={{ background: '#F6F8FA' }} className={c.card_body}>
+                        <div>希必能源、新加坡MVGX绿色交易所、智普信就联合推动碳资产开……</div>
+
                       <p className={c.newsdate}>
                         <span>2022年10月13日</span>
                         <span className={c.arrow_right}>
@@ -138,14 +167,22 @@ export default function Home() {
 
                     </Card.Body>
                   </Card>
+                  </SlideInAnimation>
+
                 </div>
               </Col>
               <Col xs={12} md={4}>
                 <div className={c.d_card} onClick={() => handleClick(5)}>
-                  <Card className={c.card}>
-                    <Card.Img className={c.d_card_img} variant="top" src="/images/new5.png" />
-                    <Card.Body style={{ background: '#F6F8FA' }} className={c.card_body}>
-                      可持续发展领导者TÜV南德集团携手智普信 合推零碳数字化平台
+                  <SlideInAnimation index={5}>
+                    <Card className={c.card}>
+                      {/* <Card.Img className={c.d_card_img} variant="top" src="/images/new5.png" /> */}
+                      <Image src='/images/new5.png'
+                        className={c.d_card_img}
+                        width={380}
+                        height={276} layout='responsive'
+                      ></Image>
+                      <Card.Body style={{ background: '#F6F8FA' }} className={c.card_body}>
+                        <div>可持续发展领导者TÜV南德集团携手智普信 合推零碳数字化平台</div>
                       <p className={c.newsdate}>
                         <span>2022年10月13日</span>
                         <span className={c.arrow_right}>
@@ -153,6 +190,8 @@ export default function Home() {
                       </p>
                     </Card.Body>
                   </Card>
+                  </SlideInAnimation>
+
                 </div>
               </Col>
               <Col xs={12} md={4}>

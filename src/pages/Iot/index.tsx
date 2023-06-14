@@ -5,11 +5,11 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
-// import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.scss';
 import React, { useState, useEffect, useRef } from 'react';
 import c from './compliance.module.scss'
-
+import { useInView } from "framer-motion";
+import { Section, SectionLeft, SectionRight, SectionBottom, SlideInAnimation } from 'components/framer';
 // 翻译
 import {
   useTranslation,
@@ -19,7 +19,8 @@ import {
 export default function Home() {
   const [hydrated, setHydrated] = useState(false);
   const { t } = useTranslation();
-
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   // 动画
   const [animates, setAnimater] = useState(true)
   const [apt1, setApt1] = useState(true)
@@ -69,7 +70,7 @@ export default function Home() {
       window.removeEventListener("scroll", handleScroll);
 
     };
-  }, []);
+  }, [isInView]);
   if (!hydrated) {
     // Returns null on first render, so the client and server match
     return null;
@@ -93,15 +94,19 @@ export default function Home() {
       {/* <Header href="/contact"></Header> */}
       <div className={`${c.part1} part_top`}>
         <Image src='/images/ge_banner.png' width='100%' style={{ height: '410px' }}></Image>
-        <h1 className={`animate__animated center  ${apt1 ? 'animate__fadeInDown' : ''}`}>{t('compliance.pt1_title')}?</h1>
+        <Section>
+          <h1 style={{ top: 'unset' }}>{t('compliance.pt1_title')}?</h1>
+        </Section>
+
         <div className={`${c.pt1_text}`}>
           <Container>
-            <div className={c.pt1_bg}>
+            <SectionBottom>
+              <div className={c.pt1_bg}>
               <p> {t('compliance.comp_1')}</p>
               <p>{t('compliance.comp_2')}</p>
               <p>{t('compliance.comp_3')}</p>
             </div>
-
+            </SectionBottom>
           </Container>
 
         </div>
@@ -110,32 +115,54 @@ export default function Home() {
         <Container className={c.container}>
           <Row>
             <Col xs={6} md={3}>
-              <img src="/images/hg_1.png" alt="" width='56' height='56' />
+              <SlideInAnimation index={1}>
+                <img src="/images/hg_1.png" alt="" width='56' height='56' />
               <p>{t('compliance.pt2_com1')}</p>
+              </SlideInAnimation>
+
             </Col>
             <Col xs={6} md={3}>
-              <img src="/images/hg_2.png" alt="" width='56' height='56' />
-              <p>{t('compliance.pt2_com2')}</p></Col>
+              <SlideInAnimation index={2}>
+                <img src="/images/hg_2.png" alt="" width='56' height='56' />
+                <p>{t('compliance.pt2_com2')}</p>
+              </SlideInAnimation>
+            </Col>
             <Col xs={6} md={3}>
-              <img src="/images/hg_3.png" alt="" width='56' height='56' />
-              <p>{t('compliance.pt2_com3')}</p></Col>
+              <SlideInAnimation index={3}>
+                <img src="/images/hg_3.png" alt="" width='56' height='56' />
+                <p>{t('compliance.pt2_com3')}</p>
+              </SlideInAnimation>
+            </Col>
             <Col xs={6} md={3}>
-              <img src="/images/hg_4.png" alt="" width='56' height='56' />
-              <p>{t('compliance.pt2_com4')}</p></Col>
+              <SlideInAnimation index={4}>
+                <img src="/images/hg_4.png" alt="" width='56' height='56' />
+                <p>{t('compliance.pt2_com4')}</p>
+              </SlideInAnimation>
+            </Col>
           </Row>
         </Container>
       </div >
       {/* 金融属性合规 */}
       < div className={c.part3} >
-        <h1 className={`center animate__animated opacity_0 ${apt2 ? 'animate__fadeInDown' : ''}`}>{t('compliance.pt3_fac')}</h1>
-        <p style={{ textAlign: 'center', marginBottom: '70px' }}>{t('compliance.pt3_facs')}</p>
+        <SectionBottom>
+          <Container>
+            <h1 style={{ textAlign: "center" }}>{t('compliance.pt3_fac')}</h1>
+            <p style={{ textAlign: 'center', marginBottom: '70px' }}>{t('compliance.pt3_facs')}</p>
+          </Container>
+
+        </SectionBottom>
+
         <Container>
           <Row>
-            <Col className={c.leftimg}>
-              <img src="/images/ge_pt2.png" alt="" />
+            <Col sm={12} md={5} className={c.leftimg}>
+              <SectionLeft>
+                <img src="/images/ge_pt2.png" alt="" />
+              </SectionLeft>
+
             </Col>
-            <Col className={c.right_text}>
-              <div className={c.wbg}>
+            <Col sm={12} md={7} className={c.right_text}>
+              <SectionRight>
+                <div className={c.wbg}>
                 <p>{t('compliance.pt3_wbg')}</p>
                 <div className={c.jrsx}>
                   <div>
@@ -159,54 +186,80 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              </SectionRight>
+
             </Col>
           </Row>
         </Container>
       </div >
       {/* 产品合规 */}
       < div className={c.part4} >
-        <h1 className={`center animate__animated opacity_0 ${apt3 ? 'animate__fadeInDown' : ''}`}>{t('compliance.pt4_pc')}</h1>
-        <p className={`center animate__animated opacity_0 ${apt3 ? 'animate__fadeInDown' : ''}`}>{t('compliance.pt4_pcs')}</p>
+        <SectionBottom>
+          <Container>
+            <h1 className={`center `}>{t('compliance.pt4_pc')}</h1>
+            <p className={`center `}>{t('compliance.pt4_pcs')}</p>
+          </Container>
+
+        </SectionBottom>
+
         <div className={c.bt}>
           <Container>
             <Row>
               <Col xs={12} sm={6} md={6} lg={4}>
-                <div className={c.textwrap}>
+                <SlideInAnimation index={1}>
+                  <div className={c.textwrap}>
                   <div>1</div>
                   <p>{t('compliance.pt4_cn1')}</p>
                 </div>
+                </SlideInAnimation>
+
               </Col>
               <Col xs={12} sm={6} md={6} lg={4}>
-                <div className={c.textwrap}>
+                <SlideInAnimation index={2}>
+                  <div className={c.textwrap}>
                   <div>2</div>
                   <p>{t('compliance.pt4_cn2')}</p>
                 </div>
+                </SlideInAnimation>
+
               </Col>
               <Col xs={12} sm={6} md={6} lg={4}>
-                <div className={c.textwrap}>
+                <SlideInAnimation index={3}>
+                  <div className={c.textwrap}>
                   <div>3</div>
                   <p>{t('compliance.pt4_cn3')}</p>
                 </div>
+                </SlideInAnimation>
+
               </Col>
               {/* </Row> */}
               {/* <Row style={{ marginTop: '40px' }}> */}
               <Col xs={12} sm={6} md={6} lg={4}>
-                <div className={c.textwrap}>
+                <SlideInAnimation index={4}>
+                  <div className={c.textwrap}>
                   <div>4</div>
                   <p>{t('compliance.pt4_cn4')}</p>
                 </div>
+                </SlideInAnimation>
+
               </Col>
               <Col xs={12} sm={6} md={6} lg={4}>
-                <div className={c.textwrap}>
+                <SlideInAnimation index={5}>
+                  <div className={c.textwrap}>
                   <div>5</div>
                   <p>{t('compliance.pt4_cn5')}</p>
                 </div>
+                </SlideInAnimation>
+
               </Col>
               <Col xs={12} sm={6} md={6} lg={4}>
-                <div className={c.textwrap}>
+                <SlideInAnimation index={6}>
+                  <div className={c.textwrap}>
                   <div>6</div>
                   <p>{t('compliance.pt4_cn6')}</p>
                 </div>
+                </SlideInAnimation>
+
               </Col>
             </Row>
           </Container>
@@ -214,8 +267,13 @@ export default function Home() {
       </div >
       {/* 身份合规 */}
       < div className={c.part5} >
-        <h1 className={`center animate__animated opacity_0 ${apt4 ? 'animate__fadeInDown' : ''}`}>{t('compliance.pt5_ic')}</h1>
-        <p className={`center animate__animated opacity_0 ${apt4 ? 'animate__fadeInDown' : ''}`}>{t('compliance.pt5_ics')}</p>
+        <Container>
+          <SectionBottom>
+            <h1 className={`center`}>{t('compliance.pt5_ic')}</h1>
+            <p className={`center`}>{t('compliance.pt5_ics')}</p>
+          </SectionBottom>
+        </Container>
+
         <div className={c.bt}>
           <Container>
             <Row>
