@@ -1,6 +1,6 @@
 import Header from 'components/header';
 import Head from 'next/head';
-import Image from 'react-bootstrap/Image'
+import Image from 'next/legacy/image'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -21,55 +21,9 @@ export default function Home() {
   const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  // 动画
-  const [animates, setAnimater] = useState(true)
-  const [apt1, setApt1] = useState(true)
-  const [apt2_l, setApt2_l] = useState(false)
-  const [apt2_r, setApt2_r] = useState(false)
-  const [apt2, setApt2] = useState(false)
-  const [apt3, setApt3] = useState(false)
-  const [apt4, setApt4] = useState(false)
-  const [apt5, setApt5] = useState(false)
-
 
   useEffect(() => {
     setHydrated(true);
-    function handleScroll() {
-      const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
-      // console.log(scrollTop)
-      // part1
-      setApt1(true);
-      if (scrollTop > 470) {
-        setApt2(true);
-        // setApt1_l(true)
-      }
-      // part2
-      if (scrollTop > 1310) {
-        setApt3(true);
-      }
-      // part3
-      if (scrollTop > 2100) {
-        setApt4(true);
-      }
-      // part4
-      if (scrollTop > 2750) {
-        setApt5(true);
-      }
-    }
-    setTimeout(() => {
-      setApt1(false)
-      // setApt2_l(false)
-      setApt2(false)
-      setApt3(false);
-      setApt4(false);
-      setApt5(false);
-    }, 5000)
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-
-    };
   }, [isInView]);
   if (!hydrated) {
     // Returns null on first render, so the client and server match
@@ -93,7 +47,10 @@ export default function Home() {
       </Head>
       {/* <Header href="/contact"></Header> */}
       <div className={`${c.part1} part_top`}>
-        <Image src='/images/ge_banner.png' width='100%' style={{ height: '410px' }}></Image>
+        <Image src='/images/ge_banner.png'
+          width={1440}
+          height={410} layout='responsive'
+        ></Image>
         <Section>
           <h1 style={{ top: 'unset' }}>{t('compliance.pt1_title')}?</h1>
         </Section>
@@ -156,7 +113,13 @@ export default function Home() {
           <Row>
             <Col sm={12} md={5} className={c.leftimg}>
               <SectionLeft>
-                <img src="/images/ge_pt2.png" alt="" />
+                <div className={c.img}>
+                  <Image src="/images/ge_pt2.png" alt=""
+                    width={599}
+                    height={420} layout='responsive'
+                  ></Image>
+                </div>
+
               </SectionLeft>
 
             </Col>
@@ -278,7 +241,8 @@ export default function Home() {
           <Container>
             <Row>
               <Col >
-                <div className={c.bgw}>
+                <SectionLeft>
+                  <div className={c.bgw}>
                   <Accordion defaultActiveKey="0" flush>
                     <Accordion.Item eventKey="0">
                       <Accordion.Header className={c.ac_bt}>{t('compliance.pt5_hg1')}</Accordion.Header>
@@ -317,9 +281,20 @@ export default function Home() {
                     </Accordion.Item>
                   </Accordion>
                 </div>
+                </SectionLeft>
+
               </Col>
               <Col className={c.identity_hg} >
-                <img src="/images/identity_hg.png" alt="" />
+                <SectionRight>
+                  <div className={c.img}>
+                    <Image src="/images/identity_hg.png" alt=""
+                      width={599}
+                      height={420} layout='responsive'
+                    ></Image>
+                  </div>
+
+                </SectionRight>
+
               </Col>
             </Row>
           </Container>
@@ -327,11 +302,15 @@ export default function Home() {
       </div >
       {/* 流程合规 */}
       < div className={c.part6} >
-        <h1 className={`center animate__animated opacity_0 ${apt5 ? 'animate__fadeInDown' : ''}`}>{t('compliance.pt6_pc')}</h1>
-        <p className={`center animate__animated opacity_0 ${apt5 ? 'animate__fadeInDown' : ''}`}>{t('compliance.pt6_pcs')}</p>
+        <SectionBottom>
+          <h1 className={`center`}>{t('compliance.pt6_pc')}</h1>
+          <p className={`center`}>{t('compliance.pt6_pcs')}</p>
+        </SectionBottom>
+
         <div className={c.process_a}>
           <Container>
-            <Row>
+            <SectionBottom>
+              <Row>
               <Col xs={6} sm={6} md={6} lg>
                 <div className={c.process_wrap}>
                   <img src="/images/process_b2.png" alt="" className={c.process_arrow_1} />
@@ -366,6 +345,8 @@ export default function Home() {
                 </div>
               </Col>
             </Row>
+            </SectionBottom>
+
           </Container>
         </div>
       </div >

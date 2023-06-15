@@ -73,6 +73,22 @@ function SectionBottom({ children }: any) {
     </section>
   );
 }
+function SectionScale({ children }: any) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  return (
+    <section className={c.section_bottom} ref={ref}
+      style={{
+        transform: isInView ? "none" : "scale(0)",
+        opacity: isInView ? 1 : 0,
+        transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.9s"
+      }}
+    >
+      {children}
+    </section>
+  );
+}
 
 function SlideInAnimation({ children, index }: any) {
   const ref = useRef(null);
@@ -95,4 +111,4 @@ function SlideInAnimation({ children, index }: any) {
     </section>
   );
 }
-export { Section, SectionLeft, SectionRight, SectionBottom, SlideInAnimation }
+export { Section, SectionLeft, SectionRight, SectionBottom, SlideInAnimation, SectionScale }

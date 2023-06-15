@@ -16,7 +16,9 @@
     color:#000;
   }
   p{
-    color:#000;
+    color: #333 !important;
+    font-size:24px!important;
+    font-weight: unset !important;
   }
 }
 .pt2_bg{
@@ -588,6 +590,9 @@ border: none;
   }
 }
 .partners{
+  h2{
+    margin-top:90px;
+  }
   .row_bottom{
     margin-bottom: 1.32rem;
     div{

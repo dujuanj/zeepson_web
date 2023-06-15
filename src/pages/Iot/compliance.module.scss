@@ -73,11 +73,11 @@
   }
   .leftimg{
     position: relative;
-    img{
+    .img{
       width:100%;
-      position: absolute;
+      position: absolute !important;
       top:-37px;
-      left:7rem;
+      left:7rem !important;
     }
   }
   .hg_icon_bg{
@@ -161,7 +161,7 @@
   }
   .identity_hg{
     position: relative;
-    img{
+    .img{
       position: absolute;
       top:-37px;
       left:-43px;
@@ -249,7 +249,7 @@
       height: 28rem;
     }
     .leftimg{
-      img{
+      .img{
         top: 50px;
         left: 34px;
       }
