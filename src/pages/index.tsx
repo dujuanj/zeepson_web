@@ -5,6 +5,7 @@ import Footer from 'components/footer'
 import Chart from 'components/chart'
 import Head from 'next/head';
 import Image from 'next/legacy/image'
+import Image2 from 'react-bootstrap/Image';
 import styles from '@/styles/Home.module.scss';
 import aniStyle from '@/styles/animates.module.css';
 import Carousel from 'react-bootstrap/Carousel';
@@ -63,7 +64,7 @@ export default function Home() {
               <Carousel.Caption>
                 <Section>
                   <h1 className={`ft_72 ${styles.ft_62}`}>Make Carbon Compliant</h1>
-                  <p className={`ft_24 mt_56 ${styles.pcaru_p} `}> {t('home.Carousel')}</p>
+                  <p className={`ft_24 mt_56 ${styles.pcaru_p} `} id={styles.carousel_p}> {t('home.Carousel')}</p>
                 </Section>
 
                 {/* <button className='carousel_btn'>合规查询</button> */}
@@ -101,7 +102,7 @@ export default function Home() {
             <div className={styles.pt2_postion}>
               <SectionBottom>
                 <Container>
-                  <h2 className={`center }`}>
+                  <h2 className='center'>
                 {t('home.gca')}
               </h2>
                 </Container>
@@ -110,44 +111,48 @@ export default function Home() {
               <div >
                 <SectionBottom>
                   <Container className={styles.bg_white}>
-                  <Row>
+                    <Row>
+                      {/* 关于全球合规 */}
                       <Col xs={12} md={8}>
                       <h4> {t('home.agc')}</h4>
                       <p className={styles.green_sytle}> {t('home.sft')}</p>
                       <p className={styles.content}> {t('home.uoo')}</p>
-                      <div className={styles.flex}>
-                        <div className={styles.hg}>
-                          <div >
-                            <img src='/images/pocketbook.png' alt='' />
-                            <p>{t('home.fac')}</p>
-                          </div>
-                        </div>
-                        <div className={styles.hg}>
-                          <div >
-                            <img src='/images/identity.png' alt='' />
-                            <p style={{ width: '64px', margin: '4px auto' }}>{t('home.ic')}</p>
-                          </div>
-                        </div>
-                        <div className={styles.hg}>
-                          <div >
-                            <img src='/images/goods.png' alt='' />
-                            <p style={{ width: '64px', margin: '4px auto' }}>{t('home.pc')}</p>
-                          </div>
-                        </div>
-                        <div className={styles.hg} style={{ marginRight: '0' }}>
-                          <div >
-                            <img src='/images/flow.png' alt='' />
-                            <p style={{ width: '64px', margin: '4px auto' }}>{t('home.psc')}</p>
-                          </div>
-                        </div>
+                        <div className={styles.hg_bottom}>
+                          <Container>
+                            <Row>
+                              <Col xs={12} md={6}>
+                                <div className={styles.hg}>
+                                  <img src='/images/pocketbook.png' alt='' />
+                                  <span>{t('home.fac')}</span>
+                                </div>
+                              </Col>
+                              <Col xs={12} md={6}>
+                                <div className={styles.hg}>
+                                  <img src='/images/identity.png' alt='' />
+                                  <span>{t('home.ic')}</span>
+                                </div>
+                              </Col>
+                              <Col xs={12} md={6}>
+                                <div className={styles.hg}>
+                                  <img src='/images/goods.png' alt='' />
+                                  <span>{t('home.pc')}</span>
+                                </div>
+                              </Col>
+                              <Col xs={12} md={6}>
+                                <div className={styles.hg}>
+                                  <img src='/images/flow.png' alt='' />
+                                  <span>{t('home.psc')}</span>
+                                </div>
+                              </Col>
+                            </Row>
+                          </Container>
+
+
                       </div>
                     </Col>
                     <Col xs={6} md={4} className={styles.phone_hide}>
-                        <Image className={`styles.bg2`} src='/images/bg2_inner.png' alt=''
-                        width={358} // 宽度
-                        height={383} // 高度
-                        layout='responsive' // 布局方式设置为响应式
-                      ></Image>
+                        <Image2 src='/images/bg2_inner.png' alt='' style={{ width: '100%' }}
+                        ></Image2>
                     </Col>
                   </Row>
                 </Container>
@@ -156,11 +161,11 @@ export default function Home() {
             </div>
           </Col>
         </Row>
-        <Image className={styles.pt2_bg} src='/images/pt2_bg.png' alt=''
+        {/* <Image className={styles.pt2_bg} src='/images/pt2_bg.png' alt=''
           width={1440}
           height={810}
           layout='responsive'
-        ></Image>
+        ></Image> */}
       </div >
       {/* part3 从碳计量到碳资产全程系统服务产品体系 */}
       < Container className={styles.measure} >
@@ -175,21 +180,21 @@ export default function Home() {
             layout='responsive' // 布局方式设置为响应式
           ></Image>
           <div className={styles.mcnc}>CNC <br />碳中和通</div>
-          <div className={styles.mcf}>
-            {t('home.ps_cf1')} <br />
-            {t('home.ps_cf1_1')}
+            <div className={styles.mcf}>
+              <div>{t('home.ps_cf1')} </div>
+              <div className={styles.phone_mc}> {t('home.ps_cf1_1')}</div>
           </div>
-          <div className={styles.mcr}>
-            {t('home.ps_cf2')} <br />
-            {t('home.ps_cf2_1')}
+            <div className={styles.mcr}>
+              <div>{t('home.ps_cf2')}</div>
+              <div className={styles.phone_mc}>{t('home.ps_cf2_1')}</div>
           </div>
-          <div className={styles.mcc}>
-            {t('home.ps_cf3')}<br />
-            {t('home.ps_cf3_1')}
+            <div className={styles.mcc}>
+              <div>{t('home.ps_cf3')}</div>
+              <div className={styles.phone_mc}> {t('home.ps_cf3_1')}</div>
           </div>
-          <div className={styles.mcnri}>
-            {t('home.ps_cf4')} <br />
-            {t('home.ps_cf4_1')}
+            <div className={styles.mcnri}>
+              <div>{t('home.ps_cf4')} </div>
+              <div className={styles.phone_mc}>{t('home.ps_cf4_1')}</div>
           </div>
         </div>
         </SectionScale>

@@ -111,7 +111,7 @@ export default function Home() {
 
         <Container>
           <Row>
-            <Col sm={12} md={5} className={c.leftimg}>
+            <Col sm={12} xs={12} md={5} className={c.leftimg}>
               <SectionLeft>
                 <div className={c.img}>
                   <Image src="/images/ge_pt2.png" alt=""
@@ -123,7 +123,7 @@ export default function Home() {
               </SectionLeft>
 
             </Col>
-            <Col sm={12} md={7} className={c.right_text}>
+            <Col sm={12} xs={12} md={7} className={c.right_text}>
               <SectionRight>
                 <div className={c.wbg}>
                 <p>{t('compliance.pt3_wbg')}</p>
@@ -246,7 +246,7 @@ export default function Home() {
                   <Accordion defaultActiveKey="0" flush>
                     <Accordion.Item eventKey="0">
                       <Accordion.Header className={c.ac_bt}>{t('compliance.pt5_hg1')}</Accordion.Header>
-                      <Accordion.Body>
+                        <Accordion.Body style={{ padding: '15px 0' }}>
                         <div className={c.textbg}>
                           <ul>
                             <li><span>.</span>{t('compliance.pt5_hg3_1')}</li>
@@ -257,7 +257,7 @@ export default function Home() {
                     </Accordion.Item>
                     <Accordion.Item eventKey="1">
                       <Accordion.Header className={c.ac_bt}>{t('compliance.pt5_hg2')}</Accordion.Header>
-                      <Accordion.Body>
+                        <Accordion.Body style={{ padding: '15px 0' }}>
                         <div className={c.textbg}>
                           <ul>
                             <li><span>.</span>{t('compliance.pt5_hg3_2')}</li>
@@ -269,7 +269,7 @@ export default function Home() {
                     </Accordion.Item>
                     <Accordion.Item eventKey="2">
                       <Accordion.Header className={c.ac_bt}>{t('compliance.pt5_hg3')}</Accordion.Header>
-                      <Accordion.Body>
+                        <Accordion.Body style={{ padding: '15px 0' }}>
                         <div className={c.textbg}>
                           <ul>
                             <li><span>.</span>{t('compliance.pt5_hg3_3')}</li>

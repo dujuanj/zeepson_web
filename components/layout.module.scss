@@ -67,7 +67,7 @@
   
 }
 .toggle_btn{
-  border:1px solid #dee2e6;
+  border:none;
   width:56px;
   height: 44px;
   line-height: 40px;
@@ -136,6 +136,14 @@
    .collapse:not(.show) {
         margin-top: 0.5rem;
 }
+  .section {
+    span{
+    top: 11% !important;
+  }
+  }
+  .chart ul li{
+    margin-right:16px;
+  }
 }
 
 

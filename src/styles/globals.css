@@ -15,7 +15,19 @@ body,html {
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
   font-weight: bold;
 }
-
+.nav-link{
+  /* display: unset; */
+}
+.detail_img{
+  height: 6rem;
+}
+.mobile_in8_show{
+  display: none !important;
+}
+.mobile_in8_none{
+  display: block;
+  
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -67,7 +79,7 @@ a {
 }
 .carousel-caption{
   width:100%;
-   top: 40%!important;
+   top: 50%!important;
   left: 50%!important;
   transform: translate(-50%, -50%);
 }
@@ -292,6 +304,18 @@ margin-top:14px;
   }
 }
 @media  screen and (max-width: 576px){
+  .carousel-inner span:first-child{
+    height: 20rem;
+  }
+  .mobile_in8_show{
+    display: block !important;
+    position: absolute;
+    right:20%
+  }
+  .mobile_in8_none{
+    display: none!important;
+    
+  }
   .pt2_bg{
     display: inline-block;
     height:0 !important;
@@ -304,7 +328,7 @@ margin-top:14px;
     width:unset;
   }
   .carousel-caption h1 {
-    font-size: 1.8rem;
+    font-size: 2.4rem;
 }
 
   .ft_68{

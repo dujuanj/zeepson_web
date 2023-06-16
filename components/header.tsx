@@ -96,10 +96,16 @@ export default function Header({ href }: any) {
               />
               {/* {scrollY} */}
             </Navbar.Brand>
+            {/* 中英切换移动端 */}
+            <Nav.Link className='mobile_in8_show'>
+              <nav className={styles.langSwitcher} >
+                <LanguageSwitcher lang="En">En</LanguageSwitcher> /{' '}
+                <LanguageSwitcher lang="Ch">简</LanguageSwitcher>  </nav>
+            </Nav.Link>
             <button className={styles.toggle_btn} onClick={handleToggleClick}>
               <span className="navbar-toggler-icon"></span>
             </button>
-            {/* <Navbar.Toggle as="button" onClick={handleToggleClick} /> */}
+
             {/* nav-bar */}
             <Navbar.Collapse id="basic-navbar-nav" style={{ flexGrow: "0", height: '100%' }} className={styles.collapse}>
               <Nav className={`me-auto nav_a phone_nav ${pnav ? 'phone_navs' : ''} `} style={{ lineHeight: '39px' }}>
@@ -162,7 +168,7 @@ export default function Header({ href }: any) {
                   {t('nav.qa')}
                   <span ></span>
                 </Nav.Link>
-                <Nav.Link>
+                <Nav.Link className='mobile_in8_none'>
                   <nav className={styles.langSwitcher} onClick={handleToggleClick}>
                     <LanguageSwitcher lang="En">En</LanguageSwitcher> /{' '}
                     <LanguageSwitcher lang="Ch">简</LanguageSwitcher>  </nav>
