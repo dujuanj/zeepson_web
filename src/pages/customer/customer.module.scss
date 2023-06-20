@@ -143,8 +143,8 @@
     text-align: right;
     span{
       display: inline-block;
-      width:2rem;
-      height:2rem;
+      width: 2rem !important;;
+      height:2rem !important;
       line-height:2rem;
       background:#FEFAF2;
       color:#FFC85F;
@@ -217,14 +217,15 @@
 .inventory{
   h2{
     font-size:24px;
-    border-bottom: 2px solid #03CD8A;
-    padding:24px 7px;
+    border-bottom: 2px solid #DEDEDE;
+    padding:24px 0;
     span{
       font-size:14px;
      color: #999999;
     }
   }
   ul{
+    padding-left:0.8rem;
     li{font-size:14px;
       margin-top:24px;
     }
@@ -239,8 +240,15 @@
   }
 }
 .zjk{
+  overflow: hidden;
   .card_img{
+    background: url('/images/zjk.png') no-repeat ;
+    background-size: 100% 100%;
     height: 50rem;
+    width:100%;
+    h1{
+     padding-top:6rem;
+    }
   }
 }
 .distributed{
@@ -260,6 +268,9 @@
     }
    }
    .table_right{
+    th{
+      font-size:14px;
+    }
     .tbody{
       margin-top:1rem;
     }
@@ -359,6 +370,7 @@
   }
 }
 @media screen and (max-width: 767px){
+
   .card_img{
     height:25rem;
   }
@@ -379,6 +391,12 @@
 }
 
 @media  screen and (max-width: 576px){
+    .main{
+    padding:0;
+  }
+  .cass_wrap{
+    margin-top:-1rem;
+  }
   .number p:first-child{
   font-size:1rem!important;
  }
@@ -421,19 +439,33 @@
         }
       }
       .card_img{
-        height: unset !important;
+        background: url(/images/zjk.png) no-repeat right;
+        background-size: 100% 100%;
+        height: unset;
+        width: 100%;
+        .content{
+          margin-top:1rem;
+          font-size:12px;
+        }
+        h1{
+          padding-top:1.5rem;
+          margin-top:1rem!important;
+        }
       }
-      .phone_zjk{
-        position: unset !important;
-        background: #fff;
-      }
+      // .phone_zjk{
+      //   position: unset !important;
+      //   background: #fff;
+      // }
     }
     
     .shanxi{
       .wrap{
         height: 30rem; 
+        h1{
+          margin-top:1rem !important;
+        }
         img{
-          height: 100%;
+          height: 90%;
         }
       }
     }
@@ -450,5 +482,16 @@
  }
  .phone_mt{
   margin-top:1rem!important;
+ }
+ .distributed{
+  .dis_1_1{
+    margin-top:0 !important;
+  }
+ }
+ .vehicle{
+  margin-bottom: 2rem;
+  .sy{
+    width:93%;
+  }
  }
 }

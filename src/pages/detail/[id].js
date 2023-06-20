@@ -6,12 +6,14 @@ import New2 from 'components/newsData/new2'
 import New3 from 'components/newsData/new3'
 import New4 from 'components/newsData/new4'
 import New5 from 'components/newsData/new5'
-import Image from 'react-bootstrap/Image'
+import Image from 'next/legacy/image'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import c from './detail.module.scss'
+import { Section, SlideInAnimation, SectionBottom } from 'components/framer';
+import { useInView } from "framer-motion";
 // 翻译
 import {
   useTranslation,
@@ -22,6 +24,9 @@ function NewDetail() {
   const { t } = useTranslation();
   const router = useRouter();
   const { id } = router.query;
+
+   const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
    useEffect(() => {
     setHydrated(true);
@@ -45,11 +50,18 @@ function NewDetail() {
       </Head>
       {/* <h1>detail {id}</h1> */}
        <div className={`${c.part1} part_top`}>
-        <Image src='/images/newbg.png' width='100%' style={{ height: '410px' }}></Image>
-        <h1>{t('news.title')}</h1>
+        <Image src='/images/newbg.png'
+         width={1440}
+          height={410} layout='responsive'
+        ></Image>
+        <Section>
+          <h1>{t('news.title')}</h1>
+        </Section>
+        
       </div>
       <div className={c.bg}>
-        <Container>
+        <SectionBottom>
+           <Container>
           <Row>
             <Col md={8}>
               {id == 1 &&
@@ -70,7 +82,7 @@ function NewDetail() {
             <Col md={4}>
               <div className={c.detail_right}>
                 <div className={c.title}>
-                  <img src='/images/detail_r.png' width='32' height='32' ></img>
+                  {/* <img src='/images/detail_r.png' width='32' height='32' ></img> */}
                   <span>{t('newsDetail.subtitle')}</span>
                  
                 </div>
@@ -180,6 +192,8 @@ function NewDetail() {
             </Col>
           </Row>
         </Container>
+         </SectionBottom>
+       
        </div>
    
     </>

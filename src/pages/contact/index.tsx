@@ -53,7 +53,7 @@ export default function Home() {
               height={410} layout='responsive'
             ></Image>
             <Section>
-              <p>{t('about.text')}</p>
+              <p className={curStyle.h1}>{t('about.text')}</p>
             </Section>
 
           </div>
@@ -84,30 +84,30 @@ export default function Home() {
                 <div className={curStyle.p_ul}>
                   <Container>
                     <Row>
-                      <Col className={curStyle.col}>
+                      <Col xs={4} md className={curStyle.col}>
                         <div>
                           <img src="/images/about_10.png" alt="" />
                           <p>{t('about.txt1')}</p>
                         </div>
                       </Col>
-                      <Col className={curStyle.col}>
+                      <Col xs={4} md className={curStyle.col}>
                         <div>
                           <img src="/images/about_30.png" alt="" />
                           <p>{t('about.txt2')}</p>
                         </div></Col>
-                      <Col className={curStyle.col}>
+                      <Col xs={4} md className={curStyle.col}>
                         <div>
                           <img src="/images/about_ai.png" alt="" className={curStyle.small} />
                           <p>{t('about.txt3')}</p>
                         </div>
                       </Col>
-                      <Col className={curStyle.col}>
+                      <Col xs={4} md className={curStyle.col}>
                         <div>
                           <img src="/images/about_chain.png" alt="" className={curStyle.small} />
                           <p>{t('about.txt4')}</p>
                         </div>
                       </Col>
-                      <Col className={curStyle.col}>
+                      <Col xs={4} md className={curStyle.col}>
                         <div style={{ borderRight: 'none' }}>
                           <img src="/images/about_iot.png" alt="" className={curStyle.small} />
                           <p>{t('about.txt5')}</p>

@@ -22,7 +22,7 @@
     span{
       display: inline-block;
     width: 85% !important;
-    vertical-align: middle;
+    vertical-align: top;
     line-height: 32px;
     }
     img{
@@ -55,6 +55,13 @@
 @media  screen and (max-width: 576px){
   .part1{
     margin-top:4.1rem;
+    span:first-child{
+      height: 12rem !important;
+    }
+    .h1{
+      font-size:2rem;
+      margin-top:10%;
+    }
     img{
       height: 260px!important;
     }
@@ -63,9 +70,17 @@
     }
   }
   .part2{
-    margin-top:70px !important;
+    margin-top:50px !important;
     .according{
       padding:1rem;
+    }
+    .actop{
+      span{
+        line-height: 26px;
+      }
+    }
+    .acbtom{
+        // line-height: 70px;
     }
   }
   .p_ul{

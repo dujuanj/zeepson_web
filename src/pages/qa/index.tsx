@@ -55,7 +55,7 @@ export default function Home() {
             height={410} layout='responsive'
           ></Image>
           <Section>
-            <p>{t('qa.title')}</p>
+            <p className={qaStyle.h1}>{t('qa.title')}</p>
           </Section>
         </div>
         <div className={qaStyle.part2}>

@@ -54,7 +54,7 @@ export default function Home() {
           height={410} layout='responsive'
         ></Image>
         <Section>
-          <p>{t('news.title')}</p>
+          <p className={c.h1}>{t('news.title')}</p>
         </Section>
 
       </div>

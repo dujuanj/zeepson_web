@@ -30,9 +30,6 @@ export default function Home() {
     setHydrated(true);
     function handleScroll() {
       const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
-
-      // part1
-      // setApt1(true);
     }
     setTimeout(() => {
       // setApt1(false)

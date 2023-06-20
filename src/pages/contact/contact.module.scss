@@ -26,7 +26,7 @@
       margin-bottom: 1.5rem;
     }
     p{
-      text-align: justify;
+      // text-align: justify;
       line-height: 1.875rem;
       font-size:14px;
     }
@@ -106,6 +106,7 @@
 }
 @media  screen and (max-width: 576px){
   .top{
+    margin-top:2.5rem;
     .ul{
       height: '26rem';
     }
@@ -118,7 +119,13 @@
   }
   .part1{
     margin-top:4.1rem;
-    // height: 10rem;
+    .h1{
+      font-size: 2rem;
+      margin-top:10%;
+    }
+    span:first-child{
+      height: 11.5rem !important;
+    }
     .part1_text{
       font-size:2.2rem;
     }
@@ -127,9 +134,9 @@
     margin-top:70px !important;
   }
   .p_ul{
-    height: 26rem !important;
-    li{
-      width:10rem;
+    height: 19rem !important;
+    .col{
+      padding: 1px !important;
     }
   }
 }

@@ -4,7 +4,7 @@
       "key": "nested en translation"
     },
     "nav":{
-        "home":"HOME",
+        "home":"Home",
         "iot":"Compliance",
         "carbon":"Products & Services",
         "custom":"Cases",
@@ -62,9 +62,9 @@
       "pt4_cn6":"The underlying VER is permanently frozen in its local registry, so VER will not be used for any commercial application in the real world.",
       "pt5_ic":"Institutional compliance",
       "pt5_ics":"The exchange has seven licenses issued by the Singapore Financial Administration (MAS)",
-      "pt5_hg1":"01.Universal market operation agency license (RMO)",
-      "pt5_hg2":"02. Capital market service license (CMS)",
-      "pt5_hg3":"03. Payment service license (PSA)",
+      "pt5_hg1":"01 Universal market operation agency license (RMO)",
+      "pt5_hg2":"02 Capital market service license (CMS)",
+      "pt5_hg3":"03 Payment service license (PSA)",
       "pt5_hg3_1":"Asset-backed digital securities trading (BT)",
       "pt5_hg3_1_2":"Digital Asset Related Product Trading (ETF)",
       "pt5_hg3_2":"Trading in securities and collective investment schemes",
@@ -249,10 +249,8 @@
     },
     "footer":{
       "beijing":"BeIjing Headquarters",
-      "Tel":"Tel",
       "support":"Technical support",
-      "mail":"E-mail",
-      "address":"Address: Room 0608, Block B, Chaowai SOHO, No.6 Chaowai Avenue, Chaoyang District, Beijing "
+      "address":"Room 0608, Block B, Chaowai SOHO, No.6 Chaowai Avenue, Chaoyang District, Beijing "
     }
    
   }

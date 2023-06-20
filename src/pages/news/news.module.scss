@@ -78,14 +78,34 @@
 @media  screen and (max-width: 576px){
   .part1{
     margin-top:4.1rem;
+     span:first-child{
+    height: 12rem !important;
+  }
     img{
       height: 260px!important;
     }
     h1{
-      font-size:1.8rem;
+      font-size:2rem;
+    }
+    .h1{
+       font-size:1.8rem;
+       margin-top:10%;
     }
   }
   .part2{
     margin-top:70px !important;
+    .newsdate{
+      span{
+        display: inline-block;
+        width:50% !important;
+        width:50% !important;
+      }
+      span:last-child{
+        margin-top:9px;
+      }
+    }
+  }
+  .arrow_right::after{
+    margin-left:4rem;
   }
 }

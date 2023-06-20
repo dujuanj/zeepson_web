@@ -508,26 +508,29 @@ export default function Home() {
                       <span>{t('cases.pt7_r2')}</span><br />
                       <span style={{ fontSize: '14px', color: '#999999' }}>{t('cases.pt7_r2_1')}</span>
                     </div>
-                    <div style={{ flex: 1 }}>
-                      <span>{t('cases.pt7_r3')}</span><br />
-                      <span style={{ fontSize: '14px', color: '#999999' }}>{t('cases.pt7_r3_1')}</span>
+
                     </div>
-                  </div>
-                  <div className={c.dis_1_1} style={{ display: 'flex', marginTop: '40px' }}>
+                    <div className={c.dis_1_1} style={{ display: 'flex', marginTop: '25px' }}>
+                      <div style={{ flex: 1 }}>
+                        <span>{t('cases.pt7_r3')}</span><br />
+                        <span style={{ fontSize: '14px', color: '#999999' }}>{t('cases.pt7_r3_1')}</span>
+                      </div>
                     <div style={{ flex: 1 }}>
                       <span>{t('cases.pt7_r4')}</span><br />
                       <span style={{ fontSize: '14px', color: '#999999' }}>{t('cases.pt7_r4_1')}</span>
                     </div>
-                    <div style={{ flex: 1 }}>
-                      <span>{t('cases.pt7_r5')}</span><br />
-                      <span style={{ fontSize: '14px', color: '#999999' }}>{t('cases.pt7_r5_1')}</span>
-                    </div>
-                    <div style={{ flex: 1 }}>
-                      <span>{t('cases.pt7_r6')}</span><br />
-                      <span style={{ fontSize: '14px', color: '#999999' }}>{t('cases.pt7_r6_1')}</span>
-                    </div>
-                  </div>
 
+                    </div>
+                    <div className={c.dis_1_1} style={{ display: 'flex', marginTop: '25px' }}>
+                      <div style={{ flex: 1 }}>
+                        <span>{t('cases.pt7_5')}</span><br />
+                        <span style={{ fontSize: '14px', color: '#999999' }}>{t('cases.pt7_5_1')}</span>
+                    </div>
+                    <div style={{ flex: 1 }}>
+                        <span>{t('cases.pt7_6')}</span><br />
+                        <span style={{ fontSize: '14px', color: '#999999' }}>{t('cases.pt7_6_1')}</span>
+                    </div>
+                    </div>
                 </Card.Body>
               </Card>
               </SectionRight>
@@ -538,7 +541,53 @@ export default function Home() {
       </div >
       {/* {张家口风电项目 } */}
       < div className={c.zjk} >
-        <Card className={`bg-dark ${c.zjk_wrap}`} style={{ border: 'none', height: '50rem' }}>
+        <div className={c.card_img}>
+          <SectionBottom>
+            <h1 className={`container`} style={{ marginTop: '3.5rem' }}>{t('cases.pt8_title')}</h1>
+          </SectionBottom>
+          <SectionBottom style={{ height: 'unset' }}>
+            <div className={`container mt_4 ${c.content}`}>
+              <p>{t('cases.pt8_text1')}</p>
+              <p>{t('cases.pt8_text2')}</p>
+            </div>
+          </SectionBottom>
+          <SectionBottom>
+            <div className='container' style={{ marginTop: '10px', display: 'flex' }}>
+
+              <div className={`${c.number} ${c.z_number}`} style={{ flex: '2' }}>
+
+                <p>199.5MW</p>
+                <p>{t('cases.pt8_t1')}</p>
+
+              </div>
+
+
+              <div className={`${c.number} ${c.z_number}`} style={{ flex: '3' }}>
+
+                <p>133台</p>
+                <p>{t('cases.pt8_t2')}</p>
+
+              </div>
+            </div>
+            <div className={`container ${c.phone_mt}`} style={{ marginTop: '3.2rem', display: 'flex' }}>
+
+              <div className={c.number} style={{ flex: '2' }}>
+
+                <p>381,450MWh</p>
+                <p>{t('cases.pt8_t3')}</p>
+
+              </div>
+              <div className={c.number} style={{ flex: '3' }}>
+
+                <p>10,000单</p>
+                <p>{t('cases.pt8_t4')}</p>
+
+              </div>
+
+            </div>
+          </SectionBottom>
+        </div>
+        {/* <Card className={`bg-dark ${c.zjk_wrap}`} style={{ border: 'none', height: '50rem' }}>
           <Card.Img className={c.card_img} src="/images/zjk.png" alt="Card image" />
           <Card.ImgOverlay className={c.phone_zjk}>
             <Card.Title>
@@ -589,7 +638,7 @@ export default function Home() {
 
 
           </Card.ImgOverlay>
-        </Card>
+        </Card> */}
       </div >
       {/* 整车产品的产品碳足迹捕捉 */}
       < div className={c.vehicle} >

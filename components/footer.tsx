@@ -3,7 +3,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import React, { useState, useEffect, useRef } from 'react';
-// import curStyle from './layout.module.scss';
 import { useRouter } from 'next/router'
 import {
   useTranslation,
@@ -52,51 +51,77 @@ export default function Footer() {
           </Row>
           <Row>
             <Col>
-              <Nav className="justify-content-center"
+              <Nav className={`justify-content-center footer_nav`}
                 activeKey="/home"
-                onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
               >
                 <Nav.Item >
                   {/* <Nav.Link href="/home" className='d_link'>{t('nav.home')}</Nav.Link> */}
                   <Nav.Link
                     onClick={(e) => handleClick(e, "/", query)}
-
                     className='d_link'
-                  >{t('nav.home')}
-                    <span ></span>
+                  >{t('nav.home')}<span ></span></Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link
+                    onClick={(e) => handleClick(e, "/Iot", query)}
+                    eventKey="link-1" className='d_link'>{t('nav.iot')}<span ></span>
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="link-1" className='d_link'>{t('nav.iot')}</Nav.Link>
+                  <Nav.Link
+                    onClick={(e) => handleClick(e, "/product", query)}
+                    eventKey="link-2" className='d_link'>{t('nav.carbon')}<span ></span></Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="link-2" className='d_link'>{t('nav.carbon')}</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="link-3" className='d_link'>
-                    {t('nav.custom')}
+                  <Nav.Link
+                    onClick={(e) => handleClick(e, "/customer", query)}
+                    eventKey="link-3" className='d_link'>
+                    {t('nav.custom')}<span ></span>
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="link-4" className='d_link'>  {t('nav.news')}</Nav.Link>
+                  <Nav.Link
+                    onClick={(e) => handleClick(e, "/news", query)}
+                    eventKey="link-4" className='d_link'>  {t('nav.news')}<span ></span></Nav.Link>
                 </Nav.Item>
 
                 <Nav.Item>
-                  <Nav.Link eventKey="link-5" className='d_link'> {t('nav.contact')}</Nav.Link>
+                  <Nav.Link
+                    onClick={(e) => handleClick(e, "/contact", query)}
+                    eventKey="link-5" className='d_link'> {t('nav.contact')}<span ></span></Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="link-5" className='d_link'>Q&A</Nav.Link>
+                  <Nav.Link
+                    onClick={(e) => handleClick(e, "/qa", query)}
+                    eventKey="link-5" className='d_link'>Q&A<span ></span></Nav.Link>
                 </Nav.Item>
 
               </Nav>
             </Col>
           </Row>
-          <Row style={{ margin: '2.68rem auto', marginBottom: '6rem' }}>
-            <Col className='d_link' md={1}><span>{t('footer.beijing')}</span></Col>
-            <Col className='d_link' md={2}><span>{t('footer.Tel')}：010-8447-1877</span></Col>
-            <Col className='d_link' md={2}><span>{t('footer.support')}：400-928-1122</span></Col>
-            <Col className='d_link' md={2}><span>{t('footer.mail')}：zps@zeepson.com</span></Col>
-            <Col className='d_link' md={4}><span>{t('footer.address')}</span></Col>
+          <Row className='footer_bot' style={{ margin: '2.68rem auto', marginBottom: '6rem' }}>
+            <Col className='d_link' md={1}>
+              <span>{t('footer.beijing')}</span></Col>
+            <Col className='d_link' md={2}>
+              <i className='footer_icon'>
+                <img src="images/phone_icon.png" alt="" />
+              </i>
+              <span>010-8447-1877</span></Col>
+            <Col className='d_link' md={3}><span>
+              <i className='footer_icon'>
+                <img src="images/phone_icon.png" alt="" />
+              </i>
+              400-928-1122({t('footer.support')})</span></Col>
+            <Col className='d_link' md={2}>
+              <i className='footer_icon'>
+                <img src="images/mail_icon.png" alt="" />
+              </i>
+              <span>zps@zeepson.com</span></Col>
+            <Col className='d_link' md={4}>
+              <i className='footer_icon'>
+                <img src="images/addre_icon.png" alt="" />
+              </i>
+              <span>{t('footer.address')}</span></Col>
 
           </Row>
         </Container>
