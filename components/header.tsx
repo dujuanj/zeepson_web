@@ -36,13 +36,7 @@ export default function Header({ href }: any) {
     setHydrated(true);
     const handleScroll = (e: any) => {
       const scrollTop = (e.srcElement ? e.srcElement.documentElement.scrollTop : false) || window.pageYOffset || (e.srcElement ? e.srcElement.body.scrollTop : 0);
-
       setScrollY(scrollTop);
-      // console.log(scrollTop)
-      if (scrollTop > 70) {
-        //添加个背景色
-      }
-
     };
     // eslint-disable-next-line no-undef
     // handleScroll(e);
@@ -58,6 +52,7 @@ export default function Header({ href }: any) {
 
   // 页面跳转
   const handleClick = (e: any, path: string, query: any) => {
+    console.log(path);
     e.preventDefault()
     if (query.lang === 'En') {
       router.push(path + '?lang=En')
@@ -71,6 +66,11 @@ export default function Header({ href }: any) {
     }
   }
   const handleToggleClick = (event: any) => {
+    if (router.asPath.includes('detail')) {
+      // console.log('detail' + router)
+    } else {
+      // console.log('none')
+    }
     event.preventDefault()
     setPnav(!pnav)
   }

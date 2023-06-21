@@ -68,7 +68,7 @@ export default function Home() {
 
 
               </Col>
-              <Col md={5} >
+              <Col md={5} className={curStyle.right_img}>
                 <SectionRight>
                   <Image src='/images/about_1.png'
                     width={488}

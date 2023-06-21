@@ -36,8 +36,8 @@
 }
 .chart{
   background: #F6F8FA;
-  position: absolute;
-  top:-28%;
+  position: relative;
+  bottom: 9rem;
   left:0;
   width:100%;
   border-radius: 1rem;
@@ -73,6 +73,9 @@
 }
 .cass_left span{
   font-size:1.25rem;
+  display: inline-block;
+  width:80!important;
+  vertical-align: top;
 }
 .cass_left_2{
   margin-top:4.2rem;
@@ -128,6 +131,7 @@
   border-radius: 1rem;
   padding:1.5rem;
   margin-bottom: 1rem;
+  height: 330px;
 }
 .photovoltaic{
   display: flex;
@@ -173,14 +177,14 @@
  .dis_1{
   border:none;
   .dis_card_body{
-    height: 250px;
+    height:17rem;
   }
  }
  .dis_2{
-  border:none;
-  .dis_card_body{
-    height: 250px;
-  }
+   border:none;
+   .dis_card_body{
+     height: 17rem;
+   }
  }
   
 }
@@ -258,7 +262,7 @@
   }
 }
    .cass_wrap{
-    margin-top:3rem
+    // margin-top:3rem
    }
 
    .report{
@@ -283,6 +287,8 @@
    .mob_bot_0{
     padding-right:3px;
    }
+
+  
 @media screen and (max-width: 1420px){
   .mob_mt_0{
     margin-top: 0 !important;
@@ -291,13 +297,10 @@
     height:25rem;
   }
 }
-@media screen and (max-width: 1200px){
-   .chat_wrap{
-    height: 35rem !important;
-  }
-  .chartfooter{
-    height: 25rem;
-  }
+@media screen and (max-width: 1400px){
+   .dis_card_body{
+    height: 20rem !important;
+   }
 }
 @media screen and (max-width: 1220px){
   .pt1_title{
@@ -313,6 +316,21 @@
     margin-top: 0 !important;
   }
 }
+@media screen and (max-width: 1200px){
+  .dis_card_body{
+    height: 23rem !important;
+   }
+  .chart{
+    bottom:5rem;
+  }
+   .chat_wrap{
+    height: 35rem !important;
+  }
+  .chartfooter{
+    height: 25rem;
+  }
+}
+
 @media screen and (max-width: 1070px){
  .number p:first-child{
   font-size:2rem!important;
@@ -340,11 +358,15 @@
 
 
 @media screen and (max-width: 991px){
+  .dis_card_body{
+    height: 25rem !important;
+   }
+   .chart{
+    bottom:3rem !important;
+  }
   .chat_wrap{
     height: 25rem !important;
-    .chart{
-      top:0;
-    }
+   
   }
   .chartfooter{
     height: 16rem;
@@ -391,6 +413,9 @@
 }
 
 @media  screen and (max-width: 576px){
+  .chart{
+    bottom:3rem !important;
+  }
     .main{
     padding:0;
   }
@@ -424,7 +449,7 @@
     }
   }
   .chat_wrap{
-    height: 25rem !important;
+    height: unset !important;
   }
   .chartfooter{
     height: 10rem;

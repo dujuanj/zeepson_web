@@ -17,11 +17,14 @@ import { useInView } from "framer-motion";
 // 翻译
 import {
   useTranslation,
+  useLanguageQuery
 } from "next-export-i18n";
 
 function NewDetail() {
   const [hydrated, setHydrated] = useState(false);
   const { t } = useTranslation();
+  const [query] = useLanguageQuery();
+  
   const router = useRouter();
   const { id } = router.query;
 
@@ -36,8 +39,12 @@ function NewDetail() {
     return null;
   }
 
-   const handleClick = (id) => {
-    router.push(`/detail/${id}`);
+  const handleClick = (id, query) => {
+    if (query.lang === 'En') {
+      router.push(`/detail/${id}?lang=En`);
+    } else {
+      router.push(`/detail/${id}`);
+    }
    };
   
   return (
@@ -89,7 +96,7 @@ function NewDetail() {
                 {/* new1 */}
                 {id != 1 && 
                 <div className={c.newcard} >
-                   <Card className={c.newcard_card} onClick={() => handleClick(1)}>
+                   <Card className={c.newcard_card} onClick={() => handleClick(1,query)}>
                     <Card.Img variant="top" src="/images/news1.png" />
                     <Card.Body className={c.cardbody}>
 
@@ -97,9 +104,8 @@ function NewDetail() {
                         全球首创“企业财务+碳一体化ERP解决方案”在京推出 —促进产业……
                         <p className={c.newsdate}>
                           <span>2022年10月13日</span>
-                          <span>
-                            <img src="/images/news_arrow.png" alt="" />
-                          </span>
+                          <span className={c.arrow_right}>
+                        </span>
                         </p>
                       </Card.Text>
                     </Card.Body>
@@ -110,7 +116,7 @@ function NewDetail() {
                 {/* new2 */}
                 {id != 2 && 
                  <div className={c.newcard}>
-                   <Card className={c.newcard_card} onClick={() => handleClick(2)}>
+                   <Card className={c.newcard_card} onClick={() => handleClick(2,query)}>
                     <Card.Img variant="top" src="/images/news2.png" />
                     <Card.Body className={c.cardbody}>
 
@@ -118,9 +124,8 @@ function NewDetail() {
                          埃顿集团、新加坡绿色交易所、智普信达成战略合作 合力共举碳资产……
                         <p className={c.newsdate}>
                           <span>2022年10月13日</span>
-                          <span>
-                            <img src="/images/news_arrow.png" alt="" />
-                          </span>
+                          <span className={c.arrow_right}>
+                        </span>
                         </p>
                       </Card.Text>
                     </Card.Body>
@@ -130,7 +135,7 @@ function NewDetail() {
                 {/* new3 */}
                 {id != 3 &&
                   <div className={c.newcard}>
-                    <Card className={c.newcard_card} onClick={() => handleClick(3)}>
+                    <Card className={c.newcard_card} onClick={() => handleClick(3,query)}>
                       <Card.Img variant="top" src="/images/news3.png" />
                       <Card.Body className={c.cardbody}>
 
@@ -138,9 +143,8 @@ function NewDetail() {
                           2022世界人工智能大会 共话低碳未来及元宇宙隐私安全
                           <p className={c.newsdate}>
                             <span>2022年10月13日</span>
-                            <span>
-                              <img src="/images/news_arrow.png" alt="" />
-                            </span>
+                            <span className={c.arrow_right}>
+                        </span>
                           </p>
                         </Card.Text>
                       </Card.Body>
@@ -150,7 +154,7 @@ function NewDetail() {
                 {/* new4 */}
                 {id != 4 &&
                   <div className={c.newcard}>
-                    <Card className={c.newcard_card} onClick={() => handleClick(4)}>
+                    <Card className={c.newcard_card} onClick={() => handleClick(4,query)}>
                       <Card.Img variant="top" src="/images/new4.png" />
                       <Card.Body className={c.cardbody}>
 
@@ -158,9 +162,8 @@ function NewDetail() {
                           希必能源、新加坡MVGX绿色交易所、智普信就联合推动碳资产开……
                           <p className={c.newsdate}>
                             <span>2022年10月13日</span>
-                            <span>
-                              <img src="/images/news_arrow.png" alt="" />
-                            </span>
+                            <span className={c.arrow_right}>
+                        </span>
                           </p>
                         </Card.Text>
                       </Card.Body>
@@ -170,7 +173,7 @@ function NewDetail() {
                 {/* new5 */}
                 {id != 5 &&
                 <div className={c.newcard}>
-                   <Card className={c.newcard_card} onClick={() => handleClick(5)}>
+                   <Card className={c.newcard_card} onClick={() => handleClick(5,query)}>
                     <Card.Img variant="top" src="/images/new5.png" />
                     <Card.Body className={c.cardbody}>
 
@@ -178,9 +181,8 @@ function NewDetail() {
                            可持续发展领导者TÜV南德集团携手智普信 合推零碳数字化平台
                         <p className={c.newsdate}>
                           <span>2022年10月13日</span>
-                          <span>
-                            <img src="/images/news_arrow.png" alt="" />
-                          </span>
+                        <span className={c.arrow_right}>
+                        </span>
                         </p>
                       </Card.Text>
                     </Card.Body>

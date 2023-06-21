@@ -63,16 +63,16 @@ export default function Home() {
             {/* 问答区1 */}
             <SectionBottom>
               <div className={qaStyle.according}>
-              <div className='myflex'>
+                <div className={`myflex ${qaStyle.myflex}`} >
                 <div className={qaStyle.actop}>
                   <img src="/images/q.png" alt="" />
                   <span>{t('qa.q1')}</span>
                 </div>
-                <div className={qaStyle.acbtom} onClick={() => { toggleOpen(0) }}>
+                  <div className={qaStyle.acbtom} onClick={() => { toggleOpen(0) }}>
                   {isOpen[0] ? (
-                    <img src="/images/up.png" alt="" />
+                      <img className={qaStyle.up_arrow} src="/images/green_up_arrow.png" alt="" />
                   ) : (
-                    <img src="/images/right_arrow.png" alt="" />
+                        <img className={qaStyle.right_arrow} src="/images/grey_right_arrow.png" alt="" />
                   )}
                 </div>
               </div>
@@ -90,16 +90,16 @@ export default function Home() {
 
             {/* 问答区 2*/}
             <SectionBottom> <div className={qaStyle.according}>
-              <div className='myflex'>
+              <div className={`myflex ${qaStyle.myflex}`} >
                 <div className={qaStyle.actop}>
                   <img src="/images/q.png" alt="" />
                   <span>{t('qa.q2')}</span>
                 </div>
                 <div className={qaStyle.acbtom} onClick={() => { toggleOpen(1) }}>
                   {isOpen[1] ? (
-                    <img src="/images/up.png" alt="" />
+                    <img className={qaStyle.up_arrow} src="/images/green_up_arrow.png" alt="" />
                   ) : (
-                    <img src="/images/right_arrow.png" alt="" />
+                      <img className={qaStyle.right_arrow} src="/images/grey_right_arrow.png" alt="" />
                   )}
 
                 </div>
@@ -119,16 +119,16 @@ export default function Home() {
             {/* 问答区3 */}
             <SectionBottom>
               <div className={qaStyle.according}>
-              <div className='myflex'>
+                <div className={`myflex ${qaStyle.myflex}`} >
                 <div className={qaStyle.actop}>
                   <img src="/images/q.png" alt="" />
                   <span>{t('qa.q3')}</span>
                 </div>
-                <div className={qaStyle.acbtom} onClick={() => { toggleOpen(2) }}>
+                  <div className={qaStyle.acbtom} onClick={() => { toggleOpen(2) }}>
                   {isOpen[2] ? (
-                    <img src="/images/up.png" alt="" />
+                      <img className={qaStyle.up_arrow} src="/images/green_up_arrow.png" alt="" />
                   ) : (
-                    <img src="/images/right_arrow.png" alt="" />
+                        <img className={qaStyle.right_arrow} src="/images/grey_right_arrow.png" alt="" />
                   )}
                 </div>
               </div>
@@ -145,16 +145,16 @@ export default function Home() {
             {/* 问答区4 */}
             <SectionBottom>
               <div className={qaStyle.according}>
-              <div className='myflex'>
+                <div className={`myflex ${qaStyle.myflex}`} >
                 <div className={qaStyle.actop}>
                   <img src="/images/q.png" alt="" />
                   <span> {t('qa.q4')}</span>
                 </div>
-                <div className={qaStyle.acbtom} onClick={() => { toggleOpen(3) }}>
+                  <div className={qaStyle.acbtom} onClick={() => { toggleOpen(3) }}>
                   {isOpen[3] ? (
-                    <img src="/images/up.png" alt="" />
+                      <img className={qaStyle.up_arrow} src="/images/green_up_arrow.png" alt="" />
                   ) : (
-                    <img src="/images/right_arrow.png" alt="" />
+                        <img className={qaStyle.right_arrow} src="/images/grey_right_arrow.png" alt="" />
                   )}
                 </div>
               </div>
@@ -171,16 +171,16 @@ export default function Home() {
             {/* 问答区 5*/}
             <SectionBottom>
               <div className={qaStyle.according}>
-              <div className='myflex'>
+                <div className={`myflex ${qaStyle.myflex}`} >
                 <div className={qaStyle.actop} >
                   <img src="/images/q.png" alt="" />
                   <span>{t('qa.q5')}</span>
                 </div>
-                <div className={qaStyle.acbtom} onClick={() => { toggleOpen(4) }}>
+                  <div className={qaStyle.acbtom} onClick={() => { toggleOpen(4) }}>
                   {isOpen[4] ? (
-                    <img src="/images/up.png" alt="" />
+                      <img className={qaStyle.up_arrow} src="/images/green_up_arrow.png" alt="" />
                   ) : (
-                    <img src="/images/right_arrow.png" alt="" />
+                        <img className={qaStyle.right_arrow} src="/images/grey_right_arrow.png" alt="" />
                   )}
                 </div>
               </div>
@@ -197,16 +197,16 @@ export default function Home() {
             {/* 问答区 6*/}
             <SectionBottom>
               <div className={qaStyle.according}>
-              <div className='myflex'>
+                <div className={`myflex ${qaStyle.myflex}`} >
                 <div className={qaStyle.actop} >
                   <img src="/images/q.png" alt="" />
                   <span>{t('qa.q6')}</span>
                 </div>
-                <div className={qaStyle.acbtom} onClick={() => { toggleOpen(5) }}>
+                  <div className={qaStyle.acbtom} onClick={() => { toggleOpen(5) }}>
                   {isOpen[5] ? (
-                    <img src="/images/up.png" alt="" />
+                      <img className={qaStyle.up_arrow} src="/images/green_up_arrow.png" alt="" />
                   ) : (
-                    <img src="/images/right_arrow.png" alt="" />
+                        <img className={qaStyle.right_arrow} src="/images/grey_right_arrow.png" alt="" />
                   )}
                 </div>
               </div>
@@ -223,16 +223,16 @@ export default function Home() {
             {/* 问答区 7*/}
             <SectionBottom>
               <div className={qaStyle.according}>
-              <div className='myflex'>
+                <div className={`myflex ${qaStyle.myflex}`} >
                 <div className={qaStyle.actop} >
                   <img src="/images/q.png" alt="" />
                   <span>{t('qa.q7')}</span>
                 </div>
-                <div className={qaStyle.acbtom} onClick={() => { toggleOpen(6) }}>
+                  <div className={qaStyle.acbtom} onClick={() => { toggleOpen(6) }}>
                   {isOpen[6] ? (
-                    <img src="/images/up.png" alt="" />
+                      <img className={qaStyle.up_arrow} src="/images/green_up_arrow.png" alt="" />
                   ) : (
-                    <img src="/images/right_arrow.png" alt="" />
+                        <img className={qaStyle.right_arrow} src="/images/grey_right_arrow.png" alt="" />
                   )}
                 </div>
               </div>

@@ -13,6 +13,7 @@ import styles from '@/styles/Home.module.scss';
 // 翻译
 import {
   useTranslation,
+  useLanguageQuery
 } from "next-export-i18n";
 
 
@@ -23,11 +24,22 @@ export default function Home() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const { t } = useTranslation();
+  const [query] = useLanguageQuery();
   const router = useRouter();
 
-  const handleClick = (id: number) => {
-    router.push(`/detail/${id}`);
-
+  const handleClick = (e: any, id: number, query: any) => {
+    e.preventDefault()
+    console.log(query)
+    console.log(router)
+    if (query.lang === 'En') {
+      router.push(`/detail/${id}?lang=En`);
+      console.log(router);
+      debugger;
+    } else {
+      router.push(`/detail/${id}`);
+      console.log(router);
+      debugger;
+    }
   };
 
 
@@ -68,7 +80,7 @@ export default function Home() {
           <Container>
             <Row>
               <Col xs={12} md={4}>
-                <div onClick={() => handleClick(1)} className={c.d_card}>
+                <div onClick={(e) => handleClick(e, 1, query)} className={c.d_card}>
                   <SlideInAnimation index={1}>
                     <Card className={c.card}>
                       {/* <Card.Img variant="top" className={c.d_card_img} src="/images/new1.png" /> */}
@@ -92,7 +104,7 @@ export default function Home() {
                 </div>
               </Col>
               <Col xs={12} md={4}>
-                <div className={c.d_card} onClick={() => handleClick(2)}>
+                <div className={c.d_card} onClick={(e) => handleClick(e, 2, query)}>
                   <SlideInAnimation index={2}>
                     <Card className={c.card}>
                       {/* <Card.Img className={c.d_card_img} variant="top" src="/images/new2.png" /> */}
@@ -118,7 +130,7 @@ export default function Home() {
                 </div>
               </Col>
               <Col xs={12} md={4}>
-                <div className={c.d_card} onClick={() => handleClick(3)}>
+                <div className={c.d_card} onClick={(e) => handleClick(e, 3, query)}>
                   <SlideInAnimation index={3}>
                     <Card className={c.card}>
                       {/* <Card.Img className={c.d_card_img} variant="top" src="/images/news3.png" /> */}
@@ -147,7 +159,7 @@ export default function Home() {
             {/* second */}
             <Row>
               <Col xs={12} md={4}>
-                <div onClick={() => handleClick(4)} className={c.d_card}>
+                <div onClick={(e) => handleClick(e, 4, query)} className={c.d_card}>
                   <SlideInAnimation index={4}>
                     <Card className={c.card}>
                       {/* <Card.Img variant="top" className={c.d_card_img} src="/images/new4.png" /> */}
@@ -172,7 +184,7 @@ export default function Home() {
                 </div>
               </Col>
               <Col xs={12} md={4}>
-                <div className={c.d_card} onClick={() => handleClick(5)}>
+                <div className={c.d_card} onClick={(e) => handleClick(e, 5, query)}>
                   <SlideInAnimation index={5}>
                     <Card className={c.card}>
                       {/* <Card.Img className={c.d_card_img} variant="top" src="/images/new5.png" /> */}

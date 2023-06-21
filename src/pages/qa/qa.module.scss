@@ -13,30 +13,37 @@
   .according{
     background: #fff;
     border-radius: 1rem;
-    padding:2.5rem;
+    padding:1rem 2rem;
+    padding-top:2rem;
     margin-top:2.5rem;
     width:100%;
+  }
+  .myflex{
+    // height: 4rem;
+    line-height: 3rem;
   }
   .actop{
     flex:1;
     span{
       display: inline-block;
-    width: 85% !important;
+    width: 90% !important;
     vertical-align: top;
-    line-height: 32px;
+    // height: 4rem !important;
+    line-height: 2rem;
+    // line-height: 32px;
     }
     img{
       width:2rem;
       height:2rem;
       margin-right:0.5rem;
+      vertical-align: top;
     }
-   
   }
   .according:hover{
     cursor: pointer;
   }
   .content{
-    margin-top:1.5rem;
+    // margin-top:1.5rem;
     display: flex;
     p{
       font-size:0.875rem;
@@ -50,6 +57,22 @@
       margin-right:0.5rem;
       margin-top: 1.5rem;
     }
+  }
+}
+.acbtom{
+  width:4rem;
+  text-align: center;
+  cursor: pointer;
+  img{
+    display: inline-block;
+  }
+  .right_arrow{
+    height: 16px;
+     margin-top:-1rem;
+  }
+  .up_arrow{
+    width:18px;
+    margin-top:-1rem;
   }
 }
 @media  screen and (max-width: 576px){

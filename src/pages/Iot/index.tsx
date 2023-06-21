@@ -52,7 +52,7 @@ export default function Home() {
           height={410} layout='responsive'
         ></Image>
         <Section>
-          <h1 style={{ top: 'unset' }}>{t('compliance.pt1_title')}?</h1>
+          <h1 >{t('compliance.pt1_title')}?</h1>
         </Section>
 
         <div className={`${c.pt1_text}`}>
@@ -111,7 +111,7 @@ export default function Home() {
 
         <Container>
           <Row>
-            <Col sm={12} xs={12} md={5} className={c.leftimg}>
+            <Col sm={12} xs={12} md={12} lg={5} className={c.leftimg}>
               <SectionLeft>
                 <div className={c.img}>
                   <Image src="/images/ge_pt2.png" alt=""
@@ -123,7 +123,7 @@ export default function Home() {
               </SectionLeft>
 
             </Col>
-            <Col sm={12} xs={12} md={7} className={c.right_text}>
+            <Col sm={12} xs={12} md={12} lg={7} className={c.right_text}>
               <SectionRight>
                 <div className={c.wbg}>
                 <p>{t('compliance.pt3_wbg')}</p>
@@ -311,7 +311,7 @@ export default function Home() {
           <Container>
             <SectionBottom>
               <Row>
-                <Col xs={12} sm={6} md={6} lg>
+                <Col xs={12} sm={6} md={6} lg={6} xl>
                 <div className={c.process_wrap}>
                   <img src="/images/process_b2.png" alt="" className={c.process_arrow_1} />
                   <img src="/images/process_a1.png" alt="" className={c.process_img} />
@@ -321,13 +321,13 @@ export default function Home() {
                   {/* <p>{t('compliance.pt6_is_content_1')}</p> */}
                 </div>
               </Col>
-                <Col xs={12} sm={6} md={6} lg>
+                <Col xs={12} sm={6} md={6} lg={6} xl>
                 <div className={`${c.process_wrap} ${c.process_wrap_2}`}>
                   <div className={c.process_top}>02 {t('compliance.pt6_issue2')}</div>
                   <p>{t('compliance.pt6_is_content_2')}</p>
                 </div>
               </Col>
-                <Col xs={12} sm={6} md={6} lg>
+                <Col xs={12} sm={6} md={6} lg={6} xl>
                 <div className={c.process_wrap}>
                   <img src="/images/process_b2.png" alt="" className={c.process_arrow_1} />
                   <img src="/images/process_a3.png" alt="" className={c.process_img} style={{ left: '-3rem' }} />
@@ -336,7 +336,7 @@ export default function Home() {
 
                   <p>{t('compliance.pt6_is_content_3')}</p>
                 </div></Col>
-                <Col xs={12} sm={6} md={6} lg>
+                <Col xs={12} sm={6} md={6} lg={6} xl>
                 <div className={`${c.process_wrap} ${c.process_wrap_2}`}>
                   <img src="/images/process_a4.png" alt="" className={c.process_img} />
                   <div className={c.process_top}>04 {t('compliance.pt6_issue4')}</div>

@@ -315,7 +315,7 @@ export default function Home() {
         {/* {减排效应举例} */}
         <div className='container mt_24 '>
           <Row >
-            <Col sm={6} md>
+            <Col sm={6} md={6} lg={6} xl>
               <SlideInAnimation index={1}> <div className={c.effect}>
                 <div className={`flex ${c.photovoltaic}`}>
                   <div className={c.pho_1}>
@@ -341,7 +341,7 @@ export default function Home() {
               </div></SlideInAnimation>
 
             </Col>
-            <Col sm={6} md>
+            <Col sm={6} md={6} lg={6} xl>
               <SlideInAnimation index={2}>
                 <div className={c.effect}>
                 <div className={`flex ${c.photovoltaic}`}>
@@ -368,7 +368,7 @@ export default function Home() {
                 </div>
               </SlideInAnimation>
             </Col>
-            <Col sm={6} md>
+            <Col sm={6} md={6} lg={6} xl>
               <SlideInAnimation index={3}>
                 <div className={c.effect}>
                 <div className={`flex ${c.photovoltaic}`}>
@@ -395,7 +395,7 @@ export default function Home() {
                 </div>
               </SlideInAnimation>
             </Col>
-            <Col sm={6} md>
+            <Col sm={6} md={6} lg={6} xl>
               <SlideInAnimation index={4}>
                 <div className={c.effect}>
                 <div className={`flex ${c.photovoltaic}`}>
@@ -423,7 +423,7 @@ export default function Home() {
               </SlideInAnimation>
 
             </Col>
-            <Col sm={6} md>
+            <Col sm={6} md={6} lg={6} xl>
               <SlideInAnimation index={5}>
                 <div className={c.effect}>
                 <div className={`flex ${c.photovoltaic}`}>

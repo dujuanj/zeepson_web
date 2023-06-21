@@ -354,6 +354,7 @@ border-radius: 40px;
   width:100%;
   z-index: 1000;
   background: url('/images/pt2_bg.png') no-repeat;
+  background-size: 100% 100%;
   h2{
     margin-top:6rem;
     margin-bottom: 3.5rem;
@@ -665,7 +666,7 @@ border: none;
 }
 @media screen and (max-width: 1080px){
   .part2_hg{
-    height:40rem;
+    // height:40rem;
   }
   .mcnc{
     font-size:24px!important;
@@ -701,7 +702,7 @@ border: none;
     height:17rem;
   }
   .part2_hg{
-    height:43rem;
+    // height:43rem;
   }
   .green_sytle{
     width:100%;
@@ -855,7 +856,7 @@ border: none;
   .measure{
     h2{
       font-size: 1.8rem !important;
-      margin-top:0;
+      margin-top:2rem;
     }
   }
   .trade{
@@ -912,7 +913,7 @@ border: none;
     display: none;
   }
   .part2_hg{
-    height:55rem !important;
+    // height:55rem !important;
   }
   .mcnri{
     left:89%;

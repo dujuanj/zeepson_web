@@ -24,7 +24,7 @@
     color:#999;
     span:last-child{
       float:right;
-      margin-top:-3px;
+      margin-top:10px;
     }
   }
   .detail_right{
@@ -82,6 +82,24 @@
   cursor: pointer;
   box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
 }
+.arrow_right {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  color:#999;
+}
+
+.arrow_right::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid;
+  border-right: 1px solid;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
 
 @media  screen and (max-width: 576px){
   .part1{
@@ -114,7 +132,10 @@
   .newsdate{
     span:last-child{
       float:unset !important;
-          margin-left: 10.8rem;
+          margin-left: 7.5rem;
     }
+  }
+   .arrow_right::after{
+    margin-left:4rem;
   }
 }
