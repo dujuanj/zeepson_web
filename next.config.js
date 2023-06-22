@@ -14,7 +14,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   }, 
   // assetPrefix: isProd ? 'http://123.57.84.214/' : '',
-  assetPrefix: isProd ? 'http://www.hiss.com.cn/' : '' 
+  // assetPrefix: isProd ? 'http://www.hiss.com.cn/' : '' 
  
 };
 

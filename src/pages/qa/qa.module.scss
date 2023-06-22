@@ -63,6 +63,7 @@
   width:4rem;
   text-align: center;
   cursor: pointer;
+  z-index: 100;
   img{
     display: inline-block;
   }
@@ -100,6 +101,7 @@
     .actop{
       span{
         line-height: 26px;
+        width:80% !important;
       }
     }
     .acbtom{

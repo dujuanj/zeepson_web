@@ -75,12 +75,7 @@
   margin-top:3px;
   background: #fff;
 }
-/* .show{
-  
-  display: block!important; 
-  -webkit-animation: fadeIn .7s;
-  animation: fadeIn .7s;
-} */
+
 .chart ul li{
   list-style: none;
   float: left;
@@ -95,6 +90,11 @@
 
 .phone_navs{
    display: none!important;
+  }
+  .section {
+    span{
+      top:35% !important;
+    }
   }
 @-webkit-keyframes fadeIn {
   from { opacity: 0; }
@@ -144,6 +144,11 @@
   .chart ul li{
     margin-right:16px;
   }
+  .section{
+    span{
+      top:unset
+    }
+  }
 }
 
 
@@ -158,10 +163,12 @@
   // transform: translateY(-100px);
   opacity: 0;
   position: absolute;
-  top: 30%;
+  // top:unset;
+  // top: 35% !important;
   width: 100% !important;
   height: 100%;
   text-align: center;
+  // z-index: -1;
   p{
     color:#fff;
     font-weight: bold;
