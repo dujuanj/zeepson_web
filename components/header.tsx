@@ -33,6 +33,8 @@ export default function Header({ href }: any) {
   const router = useRouter()
   const [hydrated, setHydrated] = useState(false);
   useEffect(() => {
+    const { id, lang, asPath } = router.query;
+    console.log(asPath)
     setHydrated(true);
     const handleScroll = (e: any) => {
       const scrollTop = (e.srcElement ? e.srcElement.documentElement.scrollTop : false) || window.pageYOffset || (e.srcElement ? e.srcElement.body.scrollTop : 0);
@@ -54,25 +56,40 @@ export default function Header({ href }: any) {
   const handleClick = (e: any, path: string, query: any) => {
     console.log(path);
     e.preventDefault()
-    if (query.lang === 'En') {
-      router.push(path + '?lang=En')
-    } else {
-      router.push(path)
-    }
+    router.push(path + `?lang=${query.lang}`)
+    // if (query.lang === 'En') {
+    //   router.push(path + '?lang=En')
+    // } else {
+    //   router.push(path)
+    // }
     if (window.innerWidth <= 991) {
       setPnav(true)
       // handleToggleClick()
       console.log('Navbar.Toggle 被点击');
     }
   }
+
   const handleToggleClick = (event: any) => {
-    if (router.asPath.includes('detail')) {
-      // console.log('detail' + router)
-    } else {
-      // console.log('none')
-    }
+    console.log(query)
+    console.log(query.lang)
+    console.log(router.query)  //id=1
+    // if (router.asPath.includes('detail')) {
+
+    //   const { id }: any = router.query;
+    //   localStorage.setItem('id', id)
+    //   console.log(query);
+    //   console.log(router.pathname)
+    //   router.push({
+    //     pathname: `/detail`,
+    //     query: { id: id, lang: query.lang }
+    //   })
+     
+    //   console.log(router)
+    //   console.log(router.query)
+    // }
     event.preventDefault()
     setPnav(!pnav)
+    // console.log(router)
   }
   // scroll
 
@@ -84,14 +101,14 @@ export default function Header({ href }: any) {
         <Navbar expand="lg" fixed='top' className={scrollY < 1 ? styles.nvb_bg : styles.nvb_bg_white}  >
           <Container style={{ height: '100%' }}>
             {/* logo */}
-            <Navbar.Brand href="/">
+            <Navbar.Brand href="/" onClick={(e) => handleClick(e, "/", query)}>
               <Image
                 alt=""
                 src="/logo.png"
-                width="176"
-                height="24"
-                className="d-inline-block logo"
-                style={{ position: 'absolute', top: '1rem' }}
+                width="205"
+                height="32"
+                className="d-inline-block header_logo"
+                style={{ position: 'absolute', top: '0.7rem' }}
 
               />
               {/* {scrollY} */}
@@ -99,8 +116,8 @@ export default function Header({ href }: any) {
             {/* 中英切换移动端 */}
             <Nav.Link className='mobile_in8_show'>
               <nav className={styles.langSwitcher} >
-                <LanguageSwitcher lang="En">En</LanguageSwitcher> /{' '}
-                <LanguageSwitcher lang="Ch">简</LanguageSwitcher>  </nav>
+                <LanguageSwitcher lang="En"><span className={query.lang == 'En' ? 'en' : ''}>En</span></LanguageSwitcher> /{' '}
+                <LanguageSwitcher lang="Ch"><span className={query.lang == 'Ch' ? 'ch' : ''}>简</span></LanguageSwitcher>  </nav>
             </Nav.Link>
             <button className={styles.toggle_btn} onClick={handleToggleClick}>
               <span className="navbar-toggler-icon"></span>
@@ -151,7 +168,7 @@ export default function Header({ href }: any) {
                 </Nav.Link>
                 <Nav.Link href={href}
                   onClick={(e) => handleClick(e, "/news", query)}
-                  className={(router.asPath === '/news' || (router.asPath === '/news?lang=En') || (router.asPath === '/news?lang=Ch') || (router.pathname == '/detail/[id]')) ? styles['active'] : ''}>
+                  className={(router.asPath === '/news' || (router.asPath === '/news?lang=En') || (router.asPath === '/news?lang=Ch') || (router.pathname == '/detail')) ? styles['active'] : ''}>
 
                   {t('nav.news')}
                   <span ></span>
@@ -170,8 +187,8 @@ export default function Header({ href }: any) {
                 </Nav.Link>
                 <Nav.Link className='mobile_in8_none'>
                   <nav className={styles.langSwitcher} onClick={handleToggleClick}>
-                    <LanguageSwitcher lang="En">En</LanguageSwitcher> /{' '}
-                    <LanguageSwitcher lang="Ch">简</LanguageSwitcher>  </nav>
+                    <LanguageSwitcher lang="En"> <span className={query.lang=='En'?'en':''}>En</span> </LanguageSwitcher> /{' '}
+                    <LanguageSwitcher lang="Ch"> <span className={query.lang == 'Ch' ? 'ch' : ''}>简</span> </LanguageSwitcher>  </nav>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>

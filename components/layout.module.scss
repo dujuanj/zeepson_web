@@ -80,7 +80,7 @@
   list-style: none;
   float: left;
   margin-right: 35px;
-  margin-top:35px;
+  margin-top:12px;
   cursor: pointer;
   font-size: 14px;
 }
@@ -141,9 +141,13 @@
     top: 11% !important;
   }
   }
-  .chart ul li{
+  .chart ul{
+    padding-left:0rem;
+    li{
     margin-right:16px;
   }
+  }
+   
   .section{
     span{
       top:unset

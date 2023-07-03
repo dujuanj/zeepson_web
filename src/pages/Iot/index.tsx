@@ -129,22 +129,22 @@ export default function Home() {
                 <p>{t('compliance.pt3_wbg')}</p>
                 <div className={c.jrsx}>
                   <div>
-                    <div className={c.hg_icon_bg}><img src="/images/kyc.png" alt="" /></div>
+                      <div className={c.hg_icon_bg}><img src="/images/kyc.png" alt="" width={32} height={32} /></div>
                     <span>KYC</span>
 
                   </div>
                   <div>
-                    <div className={c.hg_icon_bg}><img src="/images/aml.png" alt="" /></div>
+                      <div className={c.hg_icon_bg}><img src="/images/aml.png" alt="" width={32} height={32} /></div>
                     <span>AML</span>
                   </div>
                   <div>
                     <div className={c.hg_icon_bg}>
-                      <img src="/images/cft.png" alt="" />
+                        <img src="/images/cft.png" alt="" width={32} height={32} />
                     </div>
                     <span>CFT</span>
                   </div>
                   <div>
-                    <div className={c.hg_icon_bg}><img src="/images/ndc.png" alt="" /></div>
+                      <div className={c.hg_icon_bg}><img src="/images/ndc.png" alt="" width={32} height={32} /></div>
                     <span>CFT</span>
                   </div>
                 </div>
@@ -240,7 +240,7 @@ export default function Home() {
         <div className={c.bt}>
           <Container>
             <Row>
-              <Col >
+              <Col xs={12} md={6} className={c.identity_hg_content} >
                 <SectionLeft>
                   <div className={c.bgw}>
                   <Accordion defaultActiveKey="0" flush>
@@ -284,7 +284,7 @@ export default function Home() {
                 </SectionLeft>
 
               </Col>
-              <Col className={c.identity_hg} >
+              <Col xs={12} md={6} className={c.identity_hg} >
                 <SectionRight>
                   <div className={c.img}>
                     <Image src="/images/identity_hg.png" alt=""
@@ -334,7 +334,7 @@ export default function Home() {
                   <img src="/images/process_b1.png" alt="" className={`${c.process_arrow_1}  ${c.process_arrow_1_bottom} ${c.phone_arrow}`} />
                   <div className={c.process_top}>03 {t('compliance.pt6_issue3')}</div>
 
-                  <p>{t('compliance.pt6_is_content_3')}</p>
+                    <p style={{ paddingTop: '1.2rem' }}>{t('compliance.pt6_is_content_3')}</p>
                 </div></Col>
                 <Col xs={12} sm={6} md={6} lg={6} xl>
                 <div className={`${c.process_wrap} ${c.process_wrap_2}`}>

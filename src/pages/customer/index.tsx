@@ -16,6 +16,7 @@ import { Section, SectionLeft, SectionRight, SectionBottom, SlideInAnimation } f
 // 翻译
 import {
   useTranslation,
+  useLanguageQuery
 } from "next-export-i18n";
 
 
@@ -25,6 +26,7 @@ export default function Home() {
   const [hydrated, setHydrated] = useState(false);
 
   const ref = useRef(null);
+  const [query] = useLanguageQuery()
   const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
@@ -47,14 +49,23 @@ export default function Home() {
         <div className={c.top}>
           <Container>
             <Row>
-              <Col md={6} className={`${c.order2}`} style={{ alignSelf: 'center' }}>
+              <Col sm={12} md={12} lg={6} className={`${c.order2}`} style={{ alignSelf: 'center' }}>
                 <SectionLeft>
                   <div>
                   <h1 className={`${c.pt1_title}`}>{t('cases.pt1_title')}</h1>
-                  <p className={c.mob_bot_0}>{t('cases.pt1_text')}</p>
-                  <div className='myflex' style={{ marginTop: '2.5rem' }}>
+                    <p className={c.mob_bot_0}>{t('cases.pt1_text')}</p>
+                    <p className={c.mob_bot_0}>{t('cases.pt1_text_1')}</p>
+                    <p className={c.mob_bot_0}>{t('cases.pt1_text_2')}</p>
+                    <p className={c.mob_bot_0}>{t('cases.pt1_text_3')}</p>
+                    <div className={`myflex ${c.pt1_bot}`} style={{ marginTop: '2.5rem' }}>
                     <div className={c.number}>
-                      <p>32家</p>
+
+                        {query.lang == 'En' &&
+                          <p>32</p>
+                        }
+                        {query.lang == 'Ch' &&
+                          <p>32家</p>
+                        }
                       <p>{t('cases.pt1_text1')}</p>
                     </div>
                     <div className={c.number}>
@@ -70,8 +81,8 @@ export default function Home() {
                 </SectionLeft>
 
               </Col>
-              <Col md={6} className={`center ${c.order1}`} >
-                <SectionRight>
+              <Col sm={12} md={12} lg={6} className={`center ${c.order1}`} >
+                <SectionRight style={{ width: 'unset', height: 'unset' }}>
                   <Image src='/images/product2.png'
                     width={600}
                     height={618} layout='responsive'
@@ -91,7 +102,7 @@ export default function Home() {
       <div className={c.pt2Wrap}>
         <div className="container">
           <Row>
-            <Col md={4} style={{ alignSelf: 'center' }}>
+            <Col md={12} lg={4} style={{ alignSelf: 'center' }}>
               <SectionLeft>
                 <Image src='/images/product_pt2.png'
                   width={420}
@@ -100,13 +111,13 @@ export default function Home() {
               </SectionLeft>
 
             </Col>
-            <Col md={8} style={{ alignSelf: 'center' }}  >
+            <Col md={12} lg={8} style={{ alignSelf: 'center' }}  >
               <SectionRight>
                 <div className={`ml_2 ${c.mleft_0}`}>
                 <h1 className={`${c.pt1_title} mt_2`}>{t('cases.pt2_title')}</h1>
                 <p>{t('cases.pt2_text1')}</p>
                 <p>{t('cases.pt2_text2')}</p>
-                <div className={`container ${c.mob_mt_0} mt_4`} style={{ display: 'flex' }}>
+                  <div className={`container ${c.mob_mt_0} mt_4 ${query.lang == 'Ch' ? `${c.flex_ch}` : ""}`} style={{ display: 'flex' }} >
                   <div className={c.number} style={{ flex: '2' }}>
                     <p>{t('cases.pt2_text2_1')}</p>
                     <p>{t('cases.pt2_text2_1_1')}</p>
@@ -116,7 +127,7 @@ export default function Home() {
                     <p>{t('cases.pt2_text2_2_1')}</p>
                   </div>
                 </div>
-                <div className={`container ${c.mob_mt_0} `} style={{ display: 'flex' }}>
+                  <div className={`container ${c.mob_mt_0} ${query.lang == 'Ch' ? `${c.flex_ch}` : ""} `} style={{ display: 'flex' }}>
                   <div className={c.number} style={{ flex: '2' }}>
                     <p>{t('cases.pt2_text2_3')}</p>
                     <p>{t('cases.pt2_text2_2_1')}</p>
@@ -136,16 +147,49 @@ export default function Home() {
       </div>
       {/* 某全球PCB头部公司 */}
       <div className={c.part3}>
-        <Card className="bg-dark text-white">
-          <Card.Img src="/images/cases_pt3_banner.png" alt="Card image" className={c.scard_img} />
-          <Card.ImgOverlay>
+        <div className='relative'>
+          <Image src="/images/cases_pt3_banner.png" alt="Card image"
+            width={1440} height={480} layout='responsive'
+          ></Image>
+          <div className={`container ${c.container}`}>
+            <div className={`${c.h1}`}>
+              <h1 style={{ marginTop: '5rem' }}>{t('cases.pt3_title')}</h1>
+
+              <div className={` ${c.pt3_container}`}>
+
+                <div className={c.number} >
+                  <p>{t('cases.pt3_sub1')}</p>
+                  <p>{t('cases.pt3_sub1_1')}</p>
+                </div>
+
+                <div className={c.number} >
+                  <p>{t('cases.pt3_sub2')}</p>
+                  <p>{t('cases.pt3_sub2_1')}</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+        </div>
+        {/* <Card className="text-white bg-dark" style={{ borderRadius: 'none' }}>
+          <Image src="/images/cases_pt3_banner.png" alt="Card image"
+            width={1440} height={480}
+          ></Image>
+          <Card.ImgOverlay style={{ borderRadius: 'none' }}>
             <Card.Title>
-              {/* <div className='container'> <h1 style={{ marginTop: '3.5rem' }}>某全球PCB头部公司</h1></div> */}
               <SectionBottom>
-                <h1 className='container' style={{ marginTop: '3.5rem' }}>{t('cases.pt3_title')}</h1>
+                <h1 className='container' style={{ marginTop: '5rem' }}>{t('cases.pt3_title')}</h1>
               </SectionBottom>
             </Card.Title>
-            <div className='container'>
+            <div className={`container ${c.pt3_container}`}>
               <SectionBottom>
                 <div className={c.number} style={{ float: 'left', marginRight: '6.25rem' }}>
                 <p>{t('cases.pt3_sub1')}</p>
@@ -160,10 +204,10 @@ export default function Home() {
               </SectionBottom>
             </div>
           </Card.ImgOverlay>
-        </Card>
+        </Card> */}
       </div>
       <SectionBottom>
-        <div className={`container ${c.chat_wrap}`} style={{ position: 'relative', height: '33rem' }}>
+        <div className={`container ${c.chat_wrap}`} style={{ position: 'relative', height: '31rem' }}>
         <div className={c.chart}>
           <div className={c.charthead}>
             <p>{t('cases.pt4')}</p>
@@ -416,7 +460,7 @@ export default function Home() {
                   <div>{t('cases.pt6_t')}</div>
                 </div>
                 <div className={c.pho_1_1}>
-                  <h6>SO2</h6>
+                    <h6>750</h6>
                   <div>{t('cases.pt6_year')}</div>
                 </div>
               </div>
@@ -427,8 +471,14 @@ export default function Home() {
               <SlideInAnimation index={5}>
                 <div className={c.effect}>
                 <div className={`flex ${c.photovoltaic}`}>
-                  <div className={c.pho_1} style={{ flex: 2 }}>
-                    <h6>NO、NO2 等气体</h6>
+                    <div className={c.pho_1} style={{ flex: 2 }}>
+                      {query.lang == 'En' &&
+                        <h6>NO、NO2</h6>
+                      }
+                      {query.lang == 'Ch' &&
+                        <h6>NO、NO2 等气体</h6>
+                      }
+
                     <div>{t('cases.pt6_jp')}</div>
                   </div>
                   <div className={c.pho_2}>
@@ -553,33 +603,35 @@ export default function Home() {
           </SectionBottom>
           <SectionBottom>
             <div className='container' style={{ marginTop: '10px', display: 'flex' }}>
-
-              <div className={`${c.number} ${c.z_number}`} style={{ flex: '2' }}>
-
+              <div className={`${c.number} ${c.z_number}`} >
                 <p>199.5MW</p>
                 <p>{t('cases.pt8_t1')}</p>
-
               </div>
-
-
               <div className={`${c.number} ${c.z_number}`} style={{ flex: '3' }}>
 
-                <p>133台</p>
+                {query.lang == 'En' &&
+                  <p>133</p>
+                }
+                {query.lang == 'Ch' &&
+                  <p>133台</p>
+                }
                 <p>{t('cases.pt8_t2')}</p>
-
               </div>
             </div>
-            <div className={`container ${c.phone_mt}`} style={{ marginTop: '3.2rem', display: 'flex' }}>
-
-              <div className={c.number} style={{ flex: '2' }}>
+            <div className={`container ${c.phone_mt}`} style={{ marginTop: '0', display: 'flex' }}>
+              <div className={c.number} style={{ marginTop: '40px' }}>
 
                 <p>381,450MWh</p>
                 <p>{t('cases.pt8_t3')}</p>
 
               </div>
-              <div className={c.number} style={{ flex: '3' }}>
-
-                <p>10,000单</p>
+              <div className={c.number} style={{ flex: '3', marginTop: '40px' }}>
+                {query.lang == 'En' &&
+                  <p>10,000</p>
+                }
+                {query.lang == 'Ch' &&
+                  <p>10,000单</p>
+                }
                 <p>{t('cases.pt8_t4')}</p>
 
               </div>
@@ -587,58 +639,7 @@ export default function Home() {
             </div>
           </SectionBottom>
         </div>
-        {/* <Card className={`bg-dark ${c.zjk_wrap}`} style={{ border: 'none', height: '50rem' }}>
-          <Card.Img className={c.card_img} src="/images/zjk.png" alt="Card image" />
-          <Card.ImgOverlay className={c.phone_zjk}>
-            <Card.Title>
-              <SectionBottom>
-                <h1 className={`container`} style={{ marginTop: '3.5rem' }}>{t('cases.pt8_title')}</h1>
-              </SectionBottom>
-            </Card.Title>
-            <SectionBottom style={{ height: 'unset' }}>
-              <div className='container mt_4'>
-              <p>{t('cases.pt8_text1')}</p>
-              <p>{t('cases.pt8_text2')}</p>
-            </div>
-            </SectionBottom>
-            <div className='container' style={{ marginTop: '10px', display: 'flex' }}>
 
-              <div className={`${c.number} ${c.z_number}`} style={{ flex: '2' }}>
-                <SlideInAnimation index={1}>
-                <p>199.5MW</p>
-                  <p>{t('cases.pt8_t1')}</p>
-                </SlideInAnimation>
-              </div>
-
-
-              <div className={`${c.number} ${c.z_number}`} style={{ flex: '3' }}>
-                <SlideInAnimation index={2}>
-                <p>133台</p>
-                  <p>{t('cases.pt8_t2')}</p>
-                </SlideInAnimation>
-              </div>
-            </div>
-            <div className={`container ${c.phone_mt}`} style={{ marginTop: '3.2rem', display: 'flex' }}>
-              <div className={c.number} style={{ flex: '2' }}>
-                <SlideInAnimation index={1}>
-                  <p>381,450MWh</p>
-                <p>{t('cases.pt8_t3')}</p>
-                </SlideInAnimation>
-              </div>
-              <div className={c.number} style={{ flex: '3' }}>
-                <SlideInAnimation index={1}>
-                  <p>10,000单</p>
-                <p>{t('cases.pt8_t4')}</p>
-                </SlideInAnimation>
-              </div>
-            </div>
-
-
-
-
-
-          </Card.ImgOverlay>
-        </Card> */}
       </div >
       {/* 整车产品的产品碳足迹捕捉 */}
       < div className={c.vehicle} >
@@ -731,38 +732,29 @@ export default function Home() {
       {/* {山西某水泥有限公司 } */}
       < div >
         <div className={c.shanxi}>
-          <Card className={`bg - dark ${c.wrap}`} style={{ border: 'none' }}>
-            <Card.Img className={c.card_img} src="/images/cases_sx.png" alt="Card image" />
-            <Card.ImgOverlay>
-              <Card.Title>
-                <SectionBottom>
-                  <h1 className='container' style={{ marginTop: '3.5rem' }}>{t('cases.pt10_title')}
-                  <span className={c.small}>{t('cases.pt10_sub')}</span>
-                </h1>
-                </SectionBottom>
-
-
-              </Card.Title>
-              <SectionBottom>
-                <div className='container'>
+          <div className={c.shanxi_img}>
+            <SectionBottom>
+              <h1 className='container' style={{ marginTop: '3.5rem' }}>{t('cases.pt10_title')}
+                <h2 className={c.small}>{t('cases.pt10_sub')}</h2>
+              </h1>
+            </SectionBottom>
+            <SectionBottom>
+              <div className='container'>
                 <p className={c.earnings}>{t('cases.pt10_c')}</p>
 
               </div>
               <div className='container' style={{ marginTop: '2rem', display: 'flex' }}>
-                <div className={`${c.number} ${c.z_number}`} style={{ flex: '1' }}>
-                  <p>199.5MW</p>
+                <div className={`${c.number} ${c.z_number}`}>
+                  <p>80%</p>
                   <p>{t('cases.pt10_t1')}</p>
                 </div>
                 <div className={`${c.number} ${c.z_number}`} style={{ flex: '4' }}>
-                  <p>133台</p>
+                  <p>60%</p>
                   <p>{t('cases.pt10_t2')}</p>
                 </div>
               </div>
-              </SectionBottom>
-
-
-            </Card.ImgOverlay>
-          </Card>
+            </SectionBottom>
+          </div>
         </div>
       </div >
       <div className={c.inventory}>
@@ -787,12 +779,12 @@ export default function Home() {
               <SectionRight>
                 <h2 style={{ borderBottom: 'none', paddingBottom: '8px' }}>{t('cases.pt11_r1')} </h2>
               <p><span>{t('cases.pt11_r1_sb')}</span></p>
-              <div style={{ background: '#F6F8FA', padding: '24px', borderRadius: '16px', marginTop: '24px' }}>
+                <div className={c.table_wrap_p}>
                 <Table responsive className={c.table_right}>
                   <thead>
                     <tr>
-                      <th>{t('cases.pt11_r_1_title')}</th>
-                      <th className={c.psub_title}>{t('cases.pt11_r_1_title_sub')}</th>
+                        <th className={c.psub_title_1}>{t('cases.pt11_r_1_title')}</th>
+                        <th className={c.psub_title} style={{ textAlign: 'right' }}>{t('cases.pt11_r_1_title_sub')}</th>
                     </tr>
                   </thead>
                   <tbody className={c.tbody}>

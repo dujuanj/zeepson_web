@@ -42,6 +42,7 @@ export default function Footer() {
     <>
       <div className='footer'>
         <Container>
+          {/* logo */}
           <Row>
             <Col>
               <h2 className='logo'>
@@ -49,6 +50,7 @@ export default function Footer() {
               </h2>
             </Col>
           </Row>
+          {/* nav */}
           <Row>
             <Col>
               <Nav className={`justify-content-center footer_nav`}
@@ -99,19 +101,24 @@ export default function Footer() {
               </Nav>
             </Col>
           </Row>
-          <Row className='footer_bot' style={{ margin: '2.68rem auto', marginBottom: '6rem' }}>
+          {/* 总部 */}
+          <Row className='d_bj'>
             <Col className='d_link' md={1}>
-              <span>{t('footer.beijing')}</span></Col>
+              <h2 className='center' style={{ fontSize: '24px' }}>{t('footer.beijing')}</h2></Col>
+          </Row>
+          <Row className='footer_bot' style={{ margin: '24px auto', marginBottom: '6rem' }}>
+
             <Col className='d_link' md={2}>
               <i className='footer_icon'>
                 <img src="images/phone_icon.png" alt="" />
               </i>
               <span>010-8447-1877</span></Col>
-            <Col className='d_link' md={3}><span>
+            <Col className='d_link' md={3}>
               <i className='footer_icon'>
                 <img src="images/phone_icon.png" alt="" />
               </i>
-              400-928-1122({t('footer.support')})</span></Col>
+              <span> 400-928-1122({t('footer.support')})</span>
+            </Col>
             <Col className='d_link' md={2}>
               <i className='footer_icon'>
                 <img src="images/mail_icon.png" alt="" />
@@ -125,18 +132,7 @@ export default function Footer() {
 
           </Row>
         </Container>
-        {/* <Container className='address'>
-          <Row>
-            <Col >
-              <h6>北京总部</h6>
-            </Col>
-            <Col sm={2}>电话：010-8447-1877</Col>
-            <Col sm={2}>技术支持：400-928-1122</Col>
-            <Col sm={2}> 邮箱：zps@zeepson.com</Col>
-            <Col sm={4}>地址：北京市 朝阳区 朝外大街乙6号 朝外SOHO B座0608室</Col>
-          </Row>
-        </Container> */}
-        <div className='bottom'>Copyright © 2012-2019. 智普信科技 ｜ 京ICP备09027907号</div>
+        <div className='bottom'>Copyright © 2012-2019. 智普信科技 ｜ 京ICP备09027907号-9</div>
 
         <style jsx>{`
           .myh1{

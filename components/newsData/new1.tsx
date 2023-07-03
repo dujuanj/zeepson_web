@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import c from '../../src/pages/detail/detail.module.scss'
+// import c from '../../src/pages/detail.module.scss'
 // 翻译
 import {
   useTranslation,

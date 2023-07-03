@@ -81,7 +81,7 @@
   .part1{
     margin-top:4.1rem;
      span:first-child{
-    height: 12rem !important;
+    // height: 12rem !important;
   }
     img{
       height: 260px!important;
@@ -91,11 +91,14 @@
     }
     .h1{
        font-size:1.8rem;
-       margin-top:10%;
+       margin-top:5%;
     }
   }
   .part2{
-    margin-top:70px !important;
+    margin-top:56px !important;
+    p{
+      margin-bottom: 22px !important;
+    }
     .newsdate{
       span{
         display: inline-block;

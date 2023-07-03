@@ -5,6 +5,8 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Image from 'next/legacy/image'
 import Container from 'react-bootstrap/Container';
+// import Modal from 'react-bootstrap/Modal';
+// import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -21,6 +23,11 @@ export default function Home() {
   const [hydrated, setHydrated] = useState(false);
   const { t } = useTranslation();
   const [activekey, setActivekey] = useState('first')
+  const [show, setShow] = useState(false);
+
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -154,7 +161,8 @@ export default function Home() {
                             <div className={c.right_wrap}>
                             <h2>{t('prd.pt1_title')}</h2>
                             <p>{t('prd.pt1_content')}</p>
-                            <a href="" className={c.btn}>{t('prd.detail')}  &gt;</a>
+                              <a href="https://www.cnc.mvgx.com" target='_blank' className={c.btn} >{t('prd.detail')}  &gt;</a>
+
                           </div>
                           </SectionRight>
 
@@ -179,7 +187,7 @@ export default function Home() {
                             <div className={c.right_wrap}>
                             <h2>{t('prd.pt2_title')}</h2>
                             <p>{t('prd.pt2_content')}</p>
-                            <a href="" className={c.btn}>{t('prd.detail')}  &gt;</a>
+                              <a href="https://www.cnc.mvgx.com" target='_blank' className={c.btn}>{t('prd.detail')}  &gt;</a>
                           </div>
                           </SectionRight>
                         </Col>
@@ -203,7 +211,7 @@ export default function Home() {
                             <div className={c.right_wrap}>
                             <h2>{t('prd.pt3_title')}</h2>
                             <p>{t('prd.pt3_content')}</p>
-                            <a href="" className={c.btn}>{t('prd.detail')}  &gt;</a>
+                              <a href="https://www.cnc.mvgx.com" target='_blank' className={c.btn}>{t('prd.detail')}  &gt;</a>
                           </div>
                           </SectionRight>
 
@@ -228,7 +236,7 @@ export default function Home() {
                             <div className={c.right_wrap}>
                             <h2>{t('prd.pt4_title')}</h2>
                             <p>{t('prd.pt4_content')}</p>
-                            <a href="" className={c.btn}>{t('prd.detail')} &gt;</a>
+                              <a href="https://www.cnc.mvgx.com" target='_blank' className={c.btn}>{t('prd.detail')} &gt;</a>
                           </div>
                           </SectionRight>
                         </Col>
@@ -238,12 +246,18 @@ export default function Home() {
                 </Tab.Content>
               </Col>
             </Row>
+
           </Tab.Container>
         </div>
 
 
       </div >
+      {/* <Modal show={show} onHide={handleClose} style={{ paddingRight: '0!important' }}>
+        <Modal.Body>
+          {t('module.msg')}
 
+        </Modal.Body>
+      </Modal> */}
     </>
   );
 }

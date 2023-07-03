@@ -8,7 +8,7 @@
         "iot":"Compliance",
         "carbon":"Products & Services",
         "custom":"Cases",
-        "news":"Informations",
+        "news":"News",
         "contact":"About Us",
          "qa":"Q&A"
     },
@@ -41,7 +41,7 @@
       "title":"About us test page"
     },
     "compliance":{
-      "pt1_title":"What is a carbon neutral token CNT?",
+      "pt1_title":"What is a carbon neutral token CNT",
       "comp_1":"01. CNT is an industry solution based on the Paris Agreement and global consensus.",
       "comp_2":"02. CNT is a system product protected by international commercial method patents and intellectual property rights, which can realize cross-border compliant trading of carbon financial assets.",
       "comp_3":"03. The development, issuance and trading of domestic CNT assets are supervised by the Green Finance Committee, the People's Bank of China and the State Administration of Foreign Exchange. ",
@@ -89,7 +89,10 @@
     },
     "cases":{
       "pt1_title":"A large consumer electronics group product",
-      "pt1_text":"Build local AIoT energy carbon management platforms for each plant and group cloud platforms to realize real-time process management of carbon emissions.Deploy carbon inventory and carbon footprint SaaS built according to ISO14064/14067 and PAS2060 standards.Use energy exceed limit, anomaly detection, fault diagnosis and automatic warning functions to ensure the safe operation of factory energy and stable production.Connect to the carbon credit management platform of the relevant supply chain to provide high-quality data for carbon emission measurement and support for offset. ",
+      "pt1_text":"Build local AIoT energy carbon management platforms for each plant and group cloud platforms to realize real-time process management of carbon emissions. ",
+      "pt1_text_1":"Deploy carbon inventory and carbon footprint SaaS built according to ISO14064/14067 and PAS2060 standards.",
+      "pt1_text_2":"Use energy exceed limit, anomaly detection, fault diagnosis and automatic warning functions to ensure the safe operation of factory energy and stable production.",
+      "pt1_text_3":"Connect to the carbon credit management platform of the relevant supply chain to provide high-quality data for carbon emission measurement and support for offset.",
       "pt1_text1":"Supply Chain Carbon Footprint (Continuous Growth)",
       "pt1_text2":"Real-time monitoring of energy consumption factories",
       "pt1_text3":"Improve management efficiency",
@@ -251,6 +254,9 @@
       "beijing":"BeIjing Headquarters",
       "support":"Technical support",
       "address":"Room 0608, Block B, Chaowai SOHO, No.6 Chaowai Avenue, Chaoyang District, Beijing "
+    },
+     "module":{
+      "msg":"Stay tuned for the system going live~"
     }
    
   }

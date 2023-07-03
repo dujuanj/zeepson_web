@@ -9,6 +9,7 @@
     // transform: translate(-50%, -50%); 
     font-size:56px;
     color:#fff;
+    top:-5%;
   }
   .pt1_text{
     position: relative;
@@ -138,7 +139,7 @@
     .bgw{
       background: #fff;
       padding:50px;
-      border-radius: 0px 0px 0px 40px;
+      border-radius: 0px 0px 0px 24px;
      .ac_bt{
       button{
         background: #fff;
@@ -186,21 +187,21 @@
         background: #F6F8FA;
         display: flex;
         align-items: center;
-        border: 4px solid #fff;
+        border: 1px solid #fff;
         // border-image: linear-gradient(134deg, rgba(212, 255, 114, 1), rgba(131, 248, 223, 1)) 4 4 round;
-        padding:29px;
+        padding:16px;
         // text-align: justify;
         border-radius: 16px;
         position: relative;
         margin-bottom: 10rem;
-        height: 21rem;
+        height: 23rem;
         .process_arrow_1{
           position: absolute;
-          top: -9.3rem;
+          top: -8.6rem;
           right: -8rem;
         }
         .process_arrow_1_bottom{
-          bottom: -9rem;
+          bottom: -8.7rem;
           top: unset;
           left: -8rem;
         }
@@ -219,13 +220,14 @@
           font-size: 24px;
           position: absolute;
           right: 16px;
-          top: -35px;
+          top: -25px;
           font-size:20px
         }
         p{
           font-size:14px;
           line-height: 22px;
         }
+       
         .process_img_1_1{
           position: absolute;
           bottom: -5rem;
@@ -236,7 +238,10 @@
       .process_wrap:hover {
         background: #F2FEF9;
         border: 4px solid;
-        border-image: linear-gradient(134deg, rgba(212, 255, 114, 1), rgba(131, 248, 223, 1)) 4 4 round;
+        border: 1px solid #03CD8A;
+        box-sizing: border-box;
+        cursor: pointer;
+        // border-image: linear-gradient(134deg, rgba(212, 255, 114, 1), rgba(131, 248, 223, 1)) 4 4 round;
       }
       .process_wrap_2{
         .process_img{
@@ -245,7 +250,7 @@
     right: 18rem;
           }
         .process_top{
-          top:20rem;
+          top:21.3rem;
           
         }
       }
@@ -330,8 +335,15 @@
 .phone_arrow{
   display: none;
 }
+.identity_hg_content{
+  order:2;
+  margin-top:-1rem;
+}
   .identity_hg{
-    display: none;
+    order:1;
+    .img{
+      position: unset !important;
+    }
   }
 }
 @media  screen and (max-width: 981px) {
@@ -372,13 +384,13 @@
   .part1{
     margin-top:4.1rem;
     span:first-child{
-      height: 12rem!important;
+      height: 10rem!important;
     }
     img{
       height:360px !important;
     }
     h1{
-      top:8% !important;
+      top:4% !important;
       font-size: 1.8rem;
     }
     .pt1_text{
@@ -401,15 +413,20 @@
     margin-top:0rem!important;
   }
   .part3{
-    // padding:55px 0;
-    // padding-bottom: 145px;
-    // margin-bottom: 65px;
+    padding:65px 0;
+    margin-bottom: 65px;
     .wbg{
       padding:0.8rem;
       height: unset;
+      margin-top: -1rem;
+      padding-top: 2rem;
+      padding-bottom: 1.5rem;
     }
     .jrsx{
       margin-left:0;
+      span{
+        margin-left:-10px;
+      }
      
     div{
       flex:1;
@@ -435,6 +452,10 @@
     }
   }
   .part5 {
+    padding-top:56px;
+    .bt{
+      margin-top:56px;
+    }
     .bgw{
       padding:12px !important;
       
@@ -472,7 +493,7 @@
           }   
     }
     .process_top{
-      top:-44px !important;
+      top:-24px !important;
       right: unset !important;
       // background: #E5E7E9 !important;
     }

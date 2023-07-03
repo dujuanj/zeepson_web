@@ -86,13 +86,13 @@ export default function Home() {
                     <Row>
                       <Col xs={4} md className={curStyle.col}>
                         <div>
-                          <img src="/images/about_10.png" alt="" />
+                          <img src="/images/about_10.png" alt="" className={curStyle.small} style={{ width: 'unset' }} />
                           <p>{t('about.txt1')}</p>
                         </div>
                       </Col>
                       <Col xs={4} md className={curStyle.col}>
                         <div>
-                          <img src="/images/about_30.png" alt="" />
+                          <img src="/images/about_30.png" alt="" className={curStyle.small} style={{ width: 'unset' }} />
                           <p>{t('about.txt2')}</p>
                         </div></Col>
                       <Col xs={4} md className={curStyle.col}>

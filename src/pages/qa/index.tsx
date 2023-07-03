@@ -15,6 +15,7 @@ import {
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 
+
 export default function Home() {
   const [hydrated, setHydrated] = useState(false);
   const { t } = useTranslation();

@@ -13,7 +13,7 @@
   background: #F6F8FA;
   padding:72px 120px;
   .newcard{
-    margin-top:24px;
+    margin-top:20px;
     .newcard_card{
       border:none;
     }
@@ -30,9 +30,10 @@
   .detail_right{
     background: #fff;
      padding:24px;
+     padding-top:32px;
     .title{
       // border-bottom: 1px solid #D8D8D8;
-      height: 4rem;
+      // height: 4rem;
      
       span{
         font-size:32px;
@@ -80,12 +81,12 @@
 }
 .newcard:hover{
   cursor: pointer;
-  box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+  // box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
 }
-.arrow_right {
+.newcard .arrow_right {
   position: relative;
   height: 20px;
-  width: 20px;
+  width: 20px!important;
   color:#999;
 }
 
@@ -105,7 +106,7 @@
   .part1{
     margin-top:4.1rem;
     span:first-child{
-      height: 12rem !important;
+      // height: 12rem !important;
     }
     img{
       height: 260px !important;
@@ -129,10 +130,13 @@
     line-height: 2.5rem;
     }
   }
+  .detail_right{
+    padding-top:24px !important;
+  }
   .newsdate{
     span:last-child{
       float:unset !important;
-          margin-left: 7.5rem;
+          margin-left: 5.8rem;
     }
   }
    .arrow_right::after{
