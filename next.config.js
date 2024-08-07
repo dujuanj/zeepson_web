@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 
-const path = require('path')
+const path = require('path');
 
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
   reactStrictMode: true,
   images: {
@@ -10,12 +10,13 @@ const nextConfig = {
     loader: 'imgix',
     path: '/',
   },
-   sassOptions: {
+  sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
-  }, 
+  },
+  output: 'export',
+
   // assetPrefix: isProd ? 'http://123.57.84.214/' : '',
-  // assetPrefix: isProd ? 'http://www.hiss.com.cn/' : '' 
- 
+  // assetPrefix: isProd ? 'http://www.hiss.com.cn/' : ''
 };
 
 module.exports = nextConfig;

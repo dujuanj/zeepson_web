@@ -1,15 +1,19 @@
+'use client';
+import dynamic from 'next/dynamic';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import React, { useState, useEffect, useRef } from 'react';
-import ReactEcharts from 'echarts-for-react';
+// import ReactEcharts from 'echarts-for-react';
 import postData from '../src/pages/api/hello';
 import c from './layout.module.scss';
 
+const ReactEcharts = dynamic(() => import('echarts-for-react'), { ssr: false });
+
 // 定义接口
-const params = new URLSearchParams();
-params.set('span', '1y');
+// const params = new URLSearchParams();
+// params.set('span', '1y');
 // 1d：一天
 // 1w：一周
 // 1m：一个月
@@ -20,7 +24,7 @@ params.set('span', '1y');
 // max：所有
 
 let title = '';
-let url = `https://markets.tradingeconomics.com/chart?s=eecxm:ind&securify=new&url=/commodity/carbon&AUTH=OpIeF1m5eEMa2rm2PFYpm6vK%2BOd3LpcRxOjYg8kKVlgcyQD383moq4AAUmKhTLcU&ohlc=0&${params}`;
+// let url = `https://markets.tradingeconomics.com/chart?s=eecxm:ind&securify=new&url=/commodity/carbon&AUTH=OpIeF1m5eEMa2rm2PFYpm6vK%2BOd3LpcRxOjYg8kKVlgcyQD383moq4AAUmKhTLcU&ohlc=0&${params}`;
 // let url = `https://markets.tradingeconomics.com/chart?s=eecxm:ind&securify=new&url=/commodity/carbon&AUTH=njvdkjOp6p4DkQzeG%2BDudn8nng%2Bkm%2BcHyOwPbOKisR5bl2psr75iVfOUT5H6mhfN&ohlc=0&${params}`
 
 export default function Chart() {
@@ -37,17 +41,17 @@ export default function Chart() {
   const [isActive, setIsActive] = useState('1y');
 
   const handleClick = (time: string) => {
-    setIsActive(time);
-    params.set('span', time);
-    url = `https://markets.tradingeconomics.com/chart?s=eecxm:ind&securify=new&url=/commodity/carbon&AUTH=OpIeF1m5eEMa2rm2PFYpm6vK%2BOd3LpcRxOjYg8kKVlgcyQD383moq4AAUmKhTLcU&ohlc=0&${params}`;
-    // url = `https://markets.tradingeconomics.com/chart?s=eecxm:ind&securify=new&url=/commodity/carbon&AUTH=njvdkjOp6p4DkQzeG%2BDudn8nng%2Bkm%2BcHyOwPbOKisR5bl2psr75iVfOUT5H6mhfN&ohlc=0&${params}`
-    // console.log(url)
-    fetchData(time);
+    // setIsActive(time);
+    // params.set('span', time);
+    // url = `https://markets.tradingeconomics.com/chart?s=eecxm:ind&securify=new&url=/commodity/carbon&AUTH=OpIeF1m5eEMa2rm2PFYpm6vK%2BOd3LpcRxOjYg8kKVlgcyQD383moq4AAUmKhTLcU&ohlc=0&${params}`;
+    // // url = `https://markets.tradingeconomics.com/chart?s=eecxm:ind&securify=new&url=/commodity/carbon&AUTH=njvdkjOp6p4DkQzeG%2BDudn8nng%2Bkm%2BcHyOwPbOKisR5bl2psr75iVfOUT5H6mhfN&ohlc=0&${params}`
+    // // console.log(url)
+    // fetchData(time);
   };
 
   async function fetchData(time: string) {
     // console.log(time)
-    const res = await postData(url)
+    const res = await postData()
       .then((data) => {
         var yResult = [];
         var change = [];
@@ -98,10 +102,10 @@ export default function Chart() {
 
   useEffect(() => {
     // console.log(url)
-    if (!isMounted.current) {
-      fetchData('1y');
-      isMounted.current = true;
-    }
+    // if (!isMounted.current) {
+    //   fetchData('1y');
+    //   isMounted.current = true;
+    // }
   }, []);
   const option = {
     title: {
